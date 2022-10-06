@@ -1,0 +1,119 @@
+Index: .idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/shelved.patch
+===================================================================
+--- .idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/shelved.patch	(revision 52f1252e1ad4597329d7f0b91661d8c4846d507a)
++++ .idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/shelved.patch	(revision 52f1252e1ad4597329d7f0b91661d8c4846d507a)
+@@ -1,1 +0,0 @@
+-diff --git .idea/shelf/Uncommitted_changes_before_Checkout_at_11_05_2020_19_24__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Checkout_at_11_05_2020_19_24__Default_Changelist_.xml
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_11_05_2020_0_41_[Default_Changelist]1/shelved.patch
+===================================================================
+--- .idea/shelf/Uncommitted_changes_before_Checkout_at_11_05_2020_0_41_[Default_Changelist]1/shelved.patch	(revision 52f1252e1ad4597329d7f0b91661d8c4846d507a)
++++ .idea/shelf/Uncommitted_changes_before_Checkout_at_11_05_2020_0_41_[Default_Changelist]1/shelved.patch	(revision 52f1252e1ad4597329d7f0b91661d8c4846d507a)
+@@ -1,36 +0,0 @@
+-Index: .env
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>MYSQL_USER=root\r\nMYSQL_ROOT_PASSWORD=admin\r\nMYSQL_DATABASE=test\r\nMYSQL_HOST=db\r\nMYSQL_PORT=3306\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+---- .env	(revision df3612dbe0580efcc466262aa545edbcbef729b8)
+-+++ .env	(date 1589148741391)
+-@@ -1,5 +1,5 @@
+--MYSQL_USER=root
+--MYSQL_ROOT_PASSWORD=admin
+-+MYSQL_USER=homestead
+-+MYSQL_ROOT_PASSWORD=secret
+- MYSQL_DATABASE=test
+--MYSQL_HOST=db
+-+MYSQL_HOST=192.168.10.10
+- MYSQL_PORT=3306
+-Index: src/Controller/SignUpController.php
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?php\r\n\r\nnamespace Pw\\SlimApp\\Controller;\r\n\r\nuse Psr\\Container\\ContainerInterface;\r\nuse Psr\\Http\\Message\\ServerRequestInterface as Request;\r\nuse Psr\\Http\\Message\\ResponseInterface as Response;\r\nuse Pw\\SlimApp\\Model\\User;\r\nuse Pw\\SlimApp\\Model\\EmailVerification;\r\n\r\nuse DateTime;\r\n\r\nfinal class SignUpController\r\n{\r\n    private ContainerInterface $container;\r\n\r\n    public function __construct(ContainerInterface $container)\r\n    {\r\n        $this->container = $container;\r\n    }\r\n\r\n    public function showSignUpPage(Request $request, Response $response): Response\r\n    {\r\n        if( isset($_SESSION['logged'])){\r\n            return $this->container->get('view')->render(\r\n                $response,\r\n                'profile.twig'\r\n            );\r\n        }\r\n        $messages = $this->container->get('flash')->getMessages();\r\n\r\n        $notifications = $messages['notifications'] ?? [];\r\n\r\n        return $this->container->get('view')->render(\r\n            $response,\r\n            'sign-up.twig',\r\n            [\r\n                'notifications' => $notifications\r\n            ]\r\n        );\r\n    }\r\n\r\n    public function getToken(Request $request, Response $response): Response\r\n    {\r\n\r\n        if($this->container->get('user_repository')->verifyAccount($_SESSION['email'])){\r\n            $status = $this->container->get('user_repository')->getToken($_SESSION['verification_code']);\r\n\r\n            if($status == 'not verified'){\r\n                //echo \"NOT VERIFIED\";\r\n                $status = $this->container->get('user_repository')->updateAccountToVerified($_SESSION['email']);\r\n                return $this->container->get('view')->render(\r\n                    $response,\r\n                    'activation.twig'\r\n                );\r\n            }\r\n            else{\r\n                echo \"SOMETHING WENT WRONG\";\r\n                return $response->withStatus(500);\r\n            }\r\n        }\r\n        else{\r\n            echo \"ACCOUNT VERIFIED\";\r\n            return $response->withStatus(500);\r\n        }\r\n    }\r\n\r\n    public function postSignUp(Request $request, Response $response): Response\r\n    {\r\n        try {\r\n\r\n\r\n            /*\r\n                      if(empty($_POST['email']));\r\n\r\n                      if(!empty($_POST['password']));\r\n\r\n                      if(!empty($_POST['birthday']));\r\n\r\n                      if(!checkEmail($_POST['email']));\r\n\r\n                      if(!checkPassword($_POST['password']));\r\n\r\n                      if(!checkBirthday($_POST['birthday']));\r\n\r\n                      if(!empty($_POST['phone_number']))\r\n                        if(!checkPhoneNumber($_POST['phone_number']));\r\n            */\r\n            // TODO - Validate data before instantiating the user\r\n            $data = $request->getParsedBody();\r\n            $verification_code = substr(number_format(time() * rand(), 0, '', ''), 0, 6);\r\n            $_SESSION['email'] = $data['email'];\r\n            $_SESSION['verification_code'] = $verification_code;\r\n            $user = new User(\r\n                $data['email'],\r\n                $data['password'],\r\n                new DateTime(),\r\n                new DateTime(),\r\n                $data['birthday'],\r\n                $data['phone_number'] ?? '',\r\n                $verification_code,\r\n                'not verified'\r\n            );\r\n\r\n            if(!$this->container->get('user_repository')->userExists($data['email'])){\r\n                $this->container->get('user_repository')->save($user);\r\n                echo \"User exists\\n\";\r\n            }\r\n            else{\r\n                //TODO Mostrar que l'usuari ja existeix\r\n                echo \"User no exists\\n\";\r\n            }\r\n        } catch (Exception $exception) {\r\n            $response->getBody()\r\n                ->write('Unexpected error: ' . $exception->getMessage());\r\n            return $response->withStatus(500);\r\n        }\r\n\r\n        $verification = new EmailVerification($data['email']);\r\n        $verification->sendMail($verification_code);\r\n\r\n        return $response->withStatus(201);\r\n\r\n    }\r\n\r\n    public function showActivation(Request $request, Response $response): Response\r\n    {\r\n        if( isset($_SESSION['logged'])){\r\n            return $this->container->get('view')->render(\r\n                $response,\r\n                'profile.twig'\r\n            );\r\n        }\r\n        return $this->container->get('view')->render(\r\n            $response,\r\n            'activation.twig'\r\n        );\r\n    }\r\n}\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+---- src/Controller/SignUpController.php	(revision df3612dbe0580efcc466262aa545edbcbef729b8)
+-+++ src/Controller/SignUpController.php	(date 1589148354622)
+-@@ -68,7 +68,7 @@
+-     public function postSignUp(Request $request, Response $response): Response
+-     {
+-         try {
+--
+-+            var_dump("hola");
+- 
+-             /*
+-                       if(empty($_POST['email']));
+Index: .idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml
+===================================================================
+--- .idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml	(revision 52f1252e1ad4597329d7f0b91661d8c4846d507a)
++++ .idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml	(revision 52f1252e1ad4597329d7f0b91661d8c4846d507a)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_rebase_[Default_Changelist]" date="1589222991018" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before rebase [Default Changelist]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_11_05_2020_0_41__Default_Changelist_1.xml
+===================================================================
+--- .idea/shelf/Uncommitted_changes_before_Checkout_at_11_05_2020_0_41__Default_Changelist_1.xml	(revision 52f1252e1ad4597329d7f0b91661d8c4846d507a)
++++ .idea/shelf/Uncommitted_changes_before_Checkout_at_11_05_2020_0_41__Default_Changelist_1.xml	(revision 52f1252e1ad4597329d7f0b91661d8c4846d507a)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Checkout_at_11_05_2020_0_41_[Default_Changelist]1" date="1589150513162" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_05_2020_0_41_[Default_Changelist]1/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 11/05/2020 0:41 [Default Changelist]" />
+-</changelist>
+\ No newline at end of file
+Index: composer.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n    \"name\": \"alexroca/slimapp\",\r\n    \"description\": \"\",\r\n    \"type\": \"project\",\r\n    \"require\": {\r\n        \"slim/slim\": \"4.*\",\r\n        \"slim/psr7\": \"^1.1\",\r\n        \"php-di/slim-bridge\": \"^3.0\",\r\n        \"slim/twig-view\": \"^3.0\",\r\n        \"dflydev/fig-cookies\": \"^2.0\",\r\n        \"slim/flash\": \"^0.4.0\",\r\n        \"symfony/dotenv\": \"^5.0\",\r\n        \"phpmailer/phpmailer\": \"^6.1\",\r\n      \"ext-pdo\": \"*\",\r\n        \"cloudinary/cloudinary_php\": \"^1.16\"\r\n    },\r\n    \"autoload\": {\r\n        \"psr-4\": {\r\n        \"Pw\\\\SlimApp\\\\\": \"src/\"\r\n        }\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- composer.json	(revision 52f1252e1ad4597329d7f0b91661d8c4846d507a)
++++ composer.json	(date 1589477353521)
+@@ -1,10 +1,10 @@
+ {
+-    "name": "alexroca/slimapp",
++    "name": "oriollalaguna/slimapp",
+     "description": "",
+     "type": "project",
+     "require": {
+         "slim/slim": "4.*",
+-        "slim/psr7": "^1.1",
++        "slim/psr7": "^1.0",
+         "php-di/slim-bridge": "^3.0",
+         "slim/twig-view": "^3.0",
+         "dflydev/fig-cookies": "^2.0",
+@@ -14,6 +14,11 @@
+       "ext-pdo": "*",
+         "cloudinary/cloudinary_php": "^1.16"
+     },
++
++    "require": {
++      "cloudinary/cloudinary_php": "dev-master"
++    },
++
+     "autoload": {
+         "psr-4": {
+         "Pw\\SlimApp\\": "src/"
+Index: .env
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>MYSQL_USER=root\r\nMYSQL_ROOT_PASSWORD=admin\r\nMYSQL_DATABASE=test\r\nMYSQL_HOST=db\r\nMYSQL_PORT=3306\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .env	(revision 52f1252e1ad4597329d7f0b91661d8c4846d507a)
++++ .env	(date 1589477756836)
+@@ -1,5 +1,5 @@
+-MYSQL_USER=root
+-MYSQL_ROOT_PASSWORD=admin
++MYSQL_USER=homestead
++MYSQL_ROOT_PASSWORD=secret
+ MYSQL_DATABASE=test
+-MYSQL_HOST=db
++MYSQL_HOST=192.168.10.10
+ MYSQL_PORT=3306

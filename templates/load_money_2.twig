@@ -1,0 +1,72 @@
+{% extends "base_1.twig" %}
+
+{% block title %}BANK ACCOUNT{% endblock %}
+
+{% block content %}
+
+
+
+    <div class="py-5 text-center parallax cover gradient-overlay" style="	background-image: url('/assets/img/paypal.png');	position: relative;	background-position: center center;	background-size: cover;	background-repeat: repeat;">
+        <div class="container d-flex flex-column">
+            <div class="row my-auto">
+                <div class="col-md-12 text-white">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h2 class="">LOAD MONEY</h2>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <h3 class="">PLEASE INSERT THE AMOUNT OF MONEY YOU WOULD LIKE TO DEPOSIT:</h3>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4">
+                                    <form name="bank_account_load" action="/account/bank-account/load" method="post">
+                                        <div class="form-group"> <label>Money to Load:</label> <input type="text" name="money" class="form-control" required> </div>
+                                        <button type="submit" value="Send" class="btn btn-primary">Submit</button>
+                                    </form>
+                                    <h style="color: red">{{ error_message }}</h>
+                                    <h style="color: lawngreen">{{ succesful_message }}</h>
+                                </div>
+                                <div class="col-md-4"></div>
+                            </div>
+
+
+                            <li class="nav-item mx-1 align-items-center d-flex justify-content-center">
+                                <form action="/account" method="get">
+                                    <a class="nav-link">
+                                        <button type="submit" class="btn btn-danger">BACK</button></a>
+                                </form>
+                            </li>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="/assets/js/parallax.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('[data-toggle="popover"]').popover();
+            $('[data-toggle="tooltip"]').tooltip();
+            $('#datepicker-example').datepicker({
+                calendarWeeks: true,
+                autoclose: true,
+                todayHighlight: true
+            });
+        });
+    </script>
+{% endblock %}

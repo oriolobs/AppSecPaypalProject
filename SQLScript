@@ -1,0 +1,46 @@
+DROP TABLE IF EXISTS `test`.`user` CASCADE;
+CREATE TABLE `user` (
+	`email` VARCHAR(255) NOT NULL DEFAULT '',
+ 	`password` VARCHAR(255) NOT NULL DEFAULT '',
+ 	`created_at` DATETIME NOT NULL,
+ 	`updated_at` DATETIME NOT NULL,
+ 	`birthday` VARCHAR(255) NOT NULL DEFAULT '',
+  	`phone_number` VARCHAR(255) NOT NULL DEFAULT '',
+  	`user_activation_code` VARCHAR(255) NOT NULL DEFAULT '',
+  	`user_email_status` ENUM('not verified', 'verified'),
+  	`profile_picture` VARCHAR(255) NOT NULL DEFAULT '',
+	`wallet` FLOAT NOT NULL DEFAULT 0.0,
+  	PRIMARY KEY (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `test`.`bank_account` CASCADE;
+CREATE TABLE `bank_account` (
+	`iban` VARCHAR(255) NOT NULL,
+	`owner_name` VARCHAR(255) NOT NULL DEFAULT '',
+	`email_owner` VARCHAR(255) NOT NULL,
+	PRIMARY KEY(`iban`),
+	FOREIGN KEY(`email_owner`) REFERENCES `user`(`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `test`.`transaction` CASCADE;
+CREATE TABLE `transaction`(
+	`id` INTEGER NOT NULL AUTO_INCREMENT,
+	`sender` VARCHAR(255) NOT NULL,
+	`receiver` VARCHAR(255) NOT NULL,
+	`amount` FLOAT NOT NULL,
+	PRIMARY KEY(`id`),
+	FOREIGN KEY(`sender`) REFERENCES `user`(`email`),
+	FOREIGN KEY(`receiver`) REFERENCES `user`(`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `test`.`request` CASCADE;
+CREATE TABLE `request` (
+	`id` INTEGER NOT NULL AUTO_INCREMENT,
+	`requester` VARCHAR(255) NOT NULL,
+	`payer` VARCHAR(255) NOT NULL,
+	`amount` FLOAT NOT NULL,
+	`status` VARCHAR(255) NOT NULL DEFAULT '',
+	PRIMARY KEY(`id`),
+	FOREIGN KEY(`requester`) REFERENCES `user`(`email`),
+	FOREIGN KEY(`payer`) REFERENCES `user`(`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

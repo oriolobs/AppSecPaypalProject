@@ -1,0 +1,1802 @@
+Index: templates/load_money_2.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{% extends \"base_1.twig\" %}\r\n\r\n{% block title %}BANK ACCOUNT{% endblock %}\r\n\r\n{% block content %}\r\n\r\n\r\n\r\n    <div class=\"py-5 text-center parallax cover gradient-overlay\" style=\"\tbackground-image: url('/assets/img/paypal.png');\tposition: relative;\tbackground-position: center center;\tbackground-size: cover;\tbackground-repeat: repeat;\">\r\n        <div class=\"container d-flex flex-column\">\r\n            <div class=\"row my-auto\">\r\n                <div class=\"col-md-12 text-white\">\r\n                    <div class=\"row\">\r\n                        <div class=\"col-md-12\">\r\n                            <div class=\"row\">\r\n                                <div class=\"col-md-12\">\r\n                                    <h2 class=\"\">BANK ACCOUNT</h2>\r\n                                </div>\r\n                            </div>\r\n\r\n                            <div class=\"col-md-12\">\r\n                                <h3 class=\"\">PLEASE INSERT THE AMOUNT OF MONEY YOU WOULD LIKE TO DEPOSIT:</h3>\r\n                            </div>\r\n\r\n                            <div class=\"row\">\r\n\r\n                                <div class=\"col-md-4\"></div>\r\n                                <div class=\"col-md-4\">\r\n                                    <form name=\"bank_account_load\" action=\"bank-account/load\" method=\"post\">\r\n                                        <label>array['iban']</label>\r\n                                        <div class=\"form-group\"> <label>Money to Load:</label> <input type=\"text\" name=\"money\" class=\"form-control\" required> </div>\r\n                                        <button type=\"submit\" value=\"Send\" class=\"btn btn-primary\">Submit</button>\r\n                                    </form>\r\n                                    <h style=\"color: red\">{{ error_message }}</h>\r\n                                </div>\r\n                                <div class=\"col-md-4\"></div>\r\n                            </div>\r\n\r\n\r\n                            <li class=\"nav-item mx-1 align-items-center d-flex justify-content-center\">\r\n                                <form action=\"/account\" method=\"get\">\r\n                                    <a class=\"nav-link\">\r\n                                        <button type=\"submit\" class=\"btn btn-danger\">BACK</button></a>\r\n                                </form>\r\n                            </li>\r\n\r\n\r\n\r\n\r\n\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n\r\n\r\n    <script src=\"https://code.jquery.com/jquery-3.2.1.slim.min.js\" integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\" crossorigin=\"anonymous\"></script>\r\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js\" integrity=\"sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q\" crossorigin=\"anonymous\"></script>\r\n    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\" integrity=\"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl\" crossorigin=\"anonymous\"></script>\r\n    <script src=\"/assets/js/parallax.js\"></script>\r\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js\"></script>\r\n    <script>\r\n        $(document).ready(function() {\r\n            $('[data-toggle=\"popover\"]').popover();\r\n            $('[data-toggle=\"tooltip\"]').tooltip();\r\n            $('#datepicker-example').datepicker({\r\n                calendarWeeks: true,\r\n                autoclose: true,\r\n                todayHighlight: true\r\n            });\r\n        });\r\n    </script>\r\n{% endblock %}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- templates/load_money_2.twig	(revision 9566d9896957049d9360dc838415976a26cae2fc)
++++ templates/load_money_2.twig	(date 1590355650288)
+@@ -44,10 +44,6 @@
+                                 </form>
+                             </li>
+ 
+-
+-
+-
+-
+                         </div>
+                     </div>
+                 </div>
+Index: composer.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n    \"name\": \"alexroca/slimapp\",\r\n    \"description\": \"\",\r\n    \"type\": \"project\",\r\n    \"require\": {\r\n        \"slim/slim\": \"4.*\",\r\n        \"slim/psr7\": \"^1.1\",\r\n        \"php-di/slim-bridge\": \"^3.0\",\r\n        \"slim/twig-view\": \"^3.0\",\r\n        \"dflydev/fig-cookies\": \"^2.0\",\r\n        \"slim/flash\": \"^0.4.0\",\r\n        \"symfony/dotenv\": \"^5.0\",\r\n        \"phpmailer/phpmailer\": \"^6.1\",\r\n      \"ext-pdo\": \"*\",\r\n        \"cloudinary/cloudinary_php\": \"^1.16\"\r\n    },\r\n    \"autoload\": {\r\n        \"psr-4\": {\r\n        \"Pw\\\\SlimApp\\\\\": \"src/\"\r\n        }\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- composer.json	(revision 9566d9896957049d9360dc838415976a26cae2fc)
++++ composer.json	(date 1590356231903)
+@@ -1,10 +1,10 @@
+ {
+-    "name": "alexroca/slimapp",
++    "name": "oriollalaguna/slimapp",
+     "description": "",
+     "type": "project",
+     "require": {
+         "slim/slim": "4.*",
+-        "slim/psr7": "^1.1",
++        "slim/psr7": "^1.0",
+         "php-di/slim-bridge": "^3.0",
+         "slim/twig-view": "^3.0",
+         "dflydev/fig-cookies": "^2.0",
+@@ -12,8 +12,14 @@
+         "symfony/dotenv": "^5.0",
+         "phpmailer/phpmailer": "^6.1",
+       "ext-pdo": "*",
+-        "cloudinary/cloudinary_php": "^1.16"
++        "cloudinary/cloudinary_php": "^1.16",
++        "jschaedl/iban-validation": "^1.6"
+     },
++
++    "require": {
++      "cloudinary/cloudinary_php": "dev-master"
++    },
++
+     "autoload": {
+         "psr-4": {
+         "Pw\\SlimApp\\": "src/"
+Index: .idea/php.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"PhpIncludePathManager\">\r\n    <include_path>\r\n      <path value=\"$PROJECT_DIR$/vendor/ralouphie/getallheaders\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/php-di/slim-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/php-di/phpdoc-reader\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/php-di/php-di\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/php-di/invoker\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/jeremeamia/superclosure\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-util\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php56\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-mbstring\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-ctype\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/dflydev/fig-cookies\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dotenv\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/composer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/nikic/php-parser\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/log\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/nikic/fast-route\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/http-server-middleware\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/slim/twig-view\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/http-server-handler\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/slim/slim\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/http-message\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/slim/psr7\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/fig/http-message-util\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/http-factory\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/slim/flash\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/container\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/twig/twig\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpmailer/phpmailer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/cloudinary/cloudinary_php\" />\r\n    </include_path>\r\n  </component>\r\n  <component name=\"PhpProjectSharedConfiguration\" php_language_level=\"7.4\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/php.xml	(revision 9566d9896957049d9360dc838415976a26cae2fc)
++++ .idea/php.xml	(date 1590356374690)
+@@ -2,34 +2,7 @@
+ <project version="4">
+   <component name="PhpIncludePathManager">
+     <include_path>
+-      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+-      <path value="$PROJECT_DIR$/vendor/php-di/slim-bridge" />
+-      <path value="$PROJECT_DIR$/vendor/php-di/phpdoc-reader" />
+-      <path value="$PROJECT_DIR$/vendor/php-di/php-di" />
+-      <path value="$PROJECT_DIR$/vendor/php-di/invoker" />
+-      <path value="$PROJECT_DIR$/vendor/jeremeamia/superclosure" />
+-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-util" />
+-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php56" />
+-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+-      <path value="$PROJECT_DIR$/vendor/dflydev/fig-cookies" />
+-      <path value="$PROJECT_DIR$/vendor/symfony/dotenv" />
+       <path value="$PROJECT_DIR$/vendor/composer" />
+-      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+-      <path value="$PROJECT_DIR$/vendor/psr/log" />
+-      <path value="$PROJECT_DIR$/vendor/nikic/fast-route" />
+-      <path value="$PROJECT_DIR$/vendor/psr/http-server-middleware" />
+-      <path value="$PROJECT_DIR$/vendor/slim/twig-view" />
+-      <path value="$PROJECT_DIR$/vendor/psr/http-server-handler" />
+-      <path value="$PROJECT_DIR$/vendor/slim/slim" />
+-      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+-      <path value="$PROJECT_DIR$/vendor/slim/psr7" />
+-      <path value="$PROJECT_DIR$/vendor/fig/http-message-util" />
+-      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+-      <path value="$PROJECT_DIR$/vendor/slim/flash" />
+-      <path value="$PROJECT_DIR$/vendor/psr/container" />
+-      <path value="$PROJECT_DIR$/vendor/twig/twig" />
+-      <path value="$PROJECT_DIR$/vendor/phpmailer/phpmailer" />
+       <path value="$PROJECT_DIR$/vendor/cloudinary/cloudinary_php" />
+     </include_path>
+   </component>
+Index: composer.lock
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n    \"_readme\": [\r\n        \"This file locks the dependencies of your project to a known state\",\r\n        \"Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies\",\r\n        \"This file is @generated automatically\"\r\n    ],\r\n    \"content-hash\": \"242cca968aea42e9be80cec36689f24c\",\r\n    \"packages\": [\r\n        {\r\n            \"name\": \"cloudinary/cloudinary_php\",\r\n            \"version\": \"1.16.0\",\r\n            \"source\": {\r\n                \"type\": \"git\",\r\n                \"url\": \"https://github.com/cloudinary/cloudinary_php.git\",\r\n                \"reference\": \"e33619e48ea8fa0350c007d640777091bfa4fdbc\"\r\n            },\r\n            \"dist\": {\r\n                \"type\": \"zip\",\r\n                \"url\": \"https://api.github.com/repos/cloudinary/cloudinary_php/zipball/e33619e48ea8fa0350c007d640777091bfa4fdbc\",\r\n                \"reference\": \"e33619e48ea8fa0350c007d640777091bfa4fdbc\",\r\n                \"shasum\": \"\"\r\n            },\r\n            \"require\": {\r\n                \"ext-curl\": \"*\",\r\n                \"ext-json\": \"*\",\r\n                \"php\": \">=5.4.0\"\r\n            },\r\n            \"require-dev\": {\r\n                \"phpunit/phpunit\": \"4.8.*\"\r\n            },\r\n            \"type\": \"library\",\r\n            \"autoload\": {\r\n                \"classmap\": [\r\n                    \"src\"\r\n                ],\r\n                \"files\": [\r\n                    \"src/Helpers.php\"\r\n                ]\r\n            },\r\n            \"notification-url\": \"https://packagist.org/downloads/\",\r\n            \"license\": [\r\n                \"MIT\"\r\n            ],\r\n            \"authors\": [\r\n                {\r\n                    \"name\": \"Cloudinary\",\r\n                    \"homepage\": \"https://github.com/cloudinary/cloudinary_php/graphs/contributors\"\r\n                }\r\n            ],\r\n            \"description\": \"Cloudinary PHP SDK\",\r\n            \"homepage\": \"https://github.com/cloudinary/cloudinary_php\",\r\n            \"keywords\": [\r\n                \"cdn\",\r\n                \"cloud\",\r\n                \"cloudinary\",\r\n                \"image management\",\r\n                \"sdk\"\r\n            ],\r\n            \"time\": \"2019-11-28T15:57:33+00:00\"\r\n        },\r\n        {\r\n            \"name\": \"dflydev/fig-cookies\",\r\n            \"version\": \"v2.0.1\",\r\n            \"source\": {\r\n                \"type\": \"git\",\r\n                \"url\": \"https://github.com/dflydev/dflydev-fig-cookies.git\",\r\n                \"reference\": \"733af78ddad60aec96f7c4a1204619dd4d62afff\"\r\n            },\r\n            \"dist\": {\r\n                \"type\": \"zip\",\r\n                \"url\": \"https://api.github.com/repos/dflydev/dflydev-fig-cookies/zipball/733af78ddad60aec96f7c4a1204619dd4d62afff\",\r\n                \"reference\": \"733af78ddad60aec96f7c4a1204619dd4d62afff\",\r\n                \"shasum\": \"\"\r\n            },\r\n            \"require\": {\r\n                \"ext-pcre\": \"*\",\r\n                \"php\": \"^7.2\",\r\n                \"psr/http-message\": \"^1\"\r\n            },\r\n            \"require-dev\": {\r\n                \"doctrine/coding-standard\": \"^4\",\r\n                \"phpstan/phpstan\": \"^0.10.1\",\r\n                \"phpunit/phpunit\": \"^7.2.6\",\r\n                \"squizlabs/php_codesniffer\": \"^3.3\"\r\n            },\r\n            \"type\": \"library\",\r\n            \"extra\": {\r\n                \"branch-alias\": {\r\n                    \"dev-master\": \"2.0.x-dev\"\r\n                }\r\n            },\r\n            \"autoload\": {\r\n                \"psr-4\": {\r\n                    \"Dflydev\\\\FigCookies\\\\\": \"src/Dflydev/FigCookies\"\r\n                }\r\n            },\r\n            \"notification-url\": \"https://packagist.org/downloads/\",\r\n            \"license\": [\r\n                \"MIT\"\r\n            ],\r\n            \"authors\": [\r\n                {\r\n                    \"name\": \"Beau Simensen\",\r\n                    \"email\": \"beau@dflydev.com\"\r\n                }\r\n            ],\r\n            \"description\": \"Cookies for PSR-7 HTTP Message Interface.\",\r\n            \"keywords\": [\r\n                \"cookies\",\r\n                \"psr-7\",\r\n                \"psr7\"\r\n            ],\r\n            \"time\": \"2020-01-02T16:13:22+00:00\"\r\n        },\r\n        {\r\n            \"name\": \"fig/http-message-util\",\r\n            \"version\": \"1.1.4\",\r\n            \"source\": {\r\n                \"type\": \"git\",\r\n                \"url\": \"https://github.com/php-fig/http-message-util.git\",\r\n                \"reference\": \"3242caa9da7221a304b8f84eb9eaddae0a7cf422\"\r\n            },\r\n            \"dist\": {\r\n                \"type\": \"zip\",\r\n                \"url\": \"https://api.github.com/repos/php-fig/http-message-util/zipball/3242caa9da7221a304b8f84eb9eaddae0a7cf422\",\r\n                \"reference\": \"3242caa9da7221a304b8f84eb9eaddae0a7cf422\",\r\n                \"shasum\": \"\"\r\n            },\r\n            \"require\": {\r\n                \"php\": \"^5.3 || ^7.0\"\r\n            },\r\n            \"suggest\": {\r\n                \"psr/http-message\": \"The package containing the PSR-7 interfaces\"\r\n            },\r\n            \"type\": \"library\",\r\n            \"extra\": {\r\n                \"branch-alias\": {\r\n                    \"dev-master\": \"1.1.x-dev\"\r\n                }\r\n            },\r\n            \"autoload\": {\r\n                \"psr-4\": {\r\n                    \"Fig\\\\Http\\\\Message\\\\\": \"src/\"\r\n                }\r\n            },\r\n            \"notification-url\": \"https://packagist.org/downloads/\",\r\n            \"license\": [\r\n                \"MIT\"\r\n            ],\r\n            \"authors\": [\r\n                {\r\n                    \"name\": \"PHP-FIG\",\r\n                    \"homepage\": \"http://www.php-fig.org/\"\r\n                }\r\n            ],\r\n            \"description\": \"Utility classes and constants for use with PSR-7 (psr/http-message)\",\r\n            \"keywords\": [\r\n                \"http\",\r\n                \"http-message\",\r\n                \"psr\",\r\n                \"psr-7\",\r\n                \"request\",\r\n                \"response\"\r\n            ],\r\n            \"time\": \"2020-02-05T20:36:27+00:00\"\r\n        },\r\n        {\r\n            \"name\": \"jeremeamia/superclosure\",\r\n            \"version\": \"2.4.0\",\r\n            \"source\": {\r\n                \"type\": \"git\",\r\n                \"url\": \"https://github.com/jeremeamia/super_closure.git\",\r\n                \"reference\": \"5707d5821b30b9a07acfb4d76949784aaa0e9ce9\"\r\n            },\r\n            \"dist\": {\r\n                \"type\": \"zip\",\r\n                \"url\": \"https://api.github.com/repos/jeremeamia/super_closure/zipball/5707d5821b30b9a07acfb4d76949784aaa0e9ce9\",\r\n                \"reference\": \"5707d5821b30b9a07acfb4d76949784aaa0e9ce9\",\r\n                \"shasum\": \"\"\r\n            },\r\n            \"require\": {\r\n                \"nikic/php-parser\": \"^1.2|^2.0|^3.0|^4.0\",\r\n                \"php\": \">=5.4\",\r\n                \"symfony/polyfill-php56\": \"^1.0\"\r\n            },\r\n            \"require-dev\": {\r\n                \"phpunit/phpunit\": \"^4.0|^5.0\"\r\n            },\r\n            \"type\": \"library\",\r\n            \"extra\": {\r\n                \"branch-alias\": {\r\n                    \"dev-master\": \"2.4-dev\"\r\n                }\r\n            },\r\n            \"autoload\": {\r\n                \"psr-4\": {\r\n                    \"SuperClosure\\\\\": \"src/\"\r\n                }\r\n            },\r\n            \"notification-url\": \"https://packagist.org/downloads/\",\r\n            \"license\": [\r\n                \"MIT\"\r\n            ],\r\n            \"authors\": [\r\n                {\r\n                    \"name\": \"Jeremy Lindblom\",\r\n                    \"email\": \"jeremeamia@gmail.com\",\r\n                    \"homepage\": \"https://github.com/jeremeamia\",\r\n                    \"role\": \"Developer\"\r\n                }\r\n            ],\r\n            \"description\": \"Serialize Closure objects, including their context and binding\",\r\n            \"homepage\": \"https://github.com/jeremeamia/super_closure\",\r\n            \"keywords\": [\r\n                \"closure\",\r\n                \"function\",\r\n                \"lambda\",\r\n                \"parser\",\r\n                \"serializable\",\r\n                \"serialize\",\r\n                \"tokenizer\"\r\n            ],\r\n            \"abandoned\": \"opis/closure\",\r\n            \"time\": \"2018-03-21T22:21:57+00:00\"\r\n        },\r\n        {\r\n            \"name\": \"nikic/fast-route\",\r\n            \"version\": \"v1.3.0\",\r\n            \"source\": {\r\n                \"type\": \"git\",\r\n                \"url\": \"https://github.com/nikic/FastRoute.git\",\r\n                \"reference\": \"181d480e08d9476e61381e04a71b34dc0432e812\"\r\n            },\r\n            \"dist\": {\r\n                \"type\": \"zip\",\r\n                \"url\": \"https://api.github.com/repos/nikic/FastRoute/zipball/181d480e08d9476e61381e04a71b34dc0432e812\",\r\n                \"reference\": \"181d480e08d9476e61381e04a71b34dc0432e812\",\r\n                \"shasum\": \"\"\r\n            },\r\n            \"require\": {\r\n                \"php\": \">=5.4.0\"\r\n            },\r\n            \"require-dev\": {\r\n                \"phpunit/phpunit\": \"^4.8.35|~5.7\"\r\n            },\r\n            \"type\": \"library\",\r\n            \"autoload\": {\r\n                \"psr-4\": {\r\n                    \"FastRoute\\\\\": \"src/\"\r\n                },\r\n                \"files\": [\r\n                    \"src/functions.php\"\r\n                ]\r\n            },\r\n            \"notification-url\": \"https://packagist.org/downloads/\",\r\n            \"license\": [\r\n                \"BSD-3-Clause\"\r\n            ],\r\n            \"authors\": [\r\n                {\r\n                    \"name\": \"Nikita Popov\",\r\n                    \"email\": \"nikic@php.net\"\r\n                }\r\n            ],\r\n            \"description\": \"Fast request router for PHP\",\r\n            \"keywords\": [\r\n                \"router\",\r\n                \"routing\"\r\n            ],\r\n            \"time\": \"2018-02-13T20:26:39+00:00\"\r\n        },\r\n        {\r\n            \"name\": \"nikic/php-parser\",\r\n            \"version\": \"v4.4.0\",\r\n            \"source\": {\r\n                \"type\": \"git\",\r\n                \"url\": \"https://github.com/nikic/PHP-Parser.git\",\r\n                \"reference\": \"bd43ec7152eaaab3bd8c6d0aa95ceeb1df8ee120\"\r\n            },\r\n            \"dist\": {\r\n                \"type\": \"zip\",\r\n                \"url\": \"https://api.github.com/repos/nikic/PHP-Parser/zipball/bd43ec7152eaaab3bd8c6d0aa95ceeb1df8ee120\",\r\n                \"reference\": \"bd43ec7152eaaab3bd8c6d0aa95ceeb1df8ee120\",\r\n                \"shasum\": \"\"\r\n            },\r\n            \"require\": {\r\n                \"ext-tokenizer\": \"*\",\r\n                \"php\": \">=7.0\"\r\n            },\r\n            \"require-dev\": {\r\n                \"ircmaxell/php-yacc\": \"0.0.5\",\r\n                \"phpunit/phpunit\": \"^6.5 || ^7.0 || ^8.0\"\r\n            },\r\n            \"bin\": [\r\n                \"bin/php-parse\"\r\n            ],\r\n            \"type\": \"library\",\r\n            \"extra\": {\r\n                \"branch-alias\": {\r\n                    \"dev-master\": \"4.3-dev\"\r\n                }\r\n            },\r\n            \"autoload\": {\r\n                \"psr-4\": {\r\n                    \"PhpParser\\\\\": \"lib/PhpParser\"\r\n                }\r\n            },\r\n            \"notification-url\": \"https://packagist.org/downloads/\",\r\n            \"license\": [\r\n                \"BSD-3-Clause\"\r\n            ],\r\n            \"authors\": [\r\n                {\r\n                    \"name\": \"Nikita Popov\"\r\n                }\r\n            ],\r\n            \"description\": \"A PHP parser written in PHP\",\r\n            \"keywords\": [\r\n                \"parser\",\r\n                \"php\"\r\n            ],\r\n            \"time\": \"2020-04-10T16:34:50+00:00\"\r\n        },\r\n        {\r\n            \"name\": \"php-di/invoker\",\r\n            \"version\": \"2.0.0\",\r\n            \"source\": {\r\n                \"type\": \"git\",\r\n                \"url\": \"https://github.com/PHP-DI/Invoker.git\",\r\n                \"reference\": \"540c27c86f663e20fe39a24cd72fa76cdb21d41a\"\r\n            },\r\n            \"dist\": {\r\n                \"type\": \"zip\",\r\n                \"url\": \"https://api.github.com/repos/PHP-DI/Invoker/zipball/540c27c86f663e20fe39a24cd72fa76cdb21d41a\",\r\n                \"reference\": \"540c27c86f663e20fe39a24cd72fa76cdb21d41a\",\r\n                \"shasum\": \"\"\r\n            },\r\n            \"require\": {\r\n                \"psr/container\": \"~1.0\"\r\n            },\r\n            \"require-dev\": {\r\n                \"athletic/athletic\": \"~0.1.8\",\r\n                \"phpunit/phpunit\": \"~4.5\"\r\n            },\r\n            \"type\": \"library\",\r\n            \"autoload\": {\r\n                \"psr-4\": {\r\n                    \"Invoker\\\\\": \"src/\"\r\n                }\r\n            },\r\n            \"notification-url\": \"https://packagist.org/downloads/\",\r\n            \"license\": [\r\n                \"MIT\"\r\n            ],\r\n            \"description\": \"Generic and extensible callable invoker\",\r\n            \"homepage\": \"https://github.com/PHP-DI/Invoker\",\r\n            \"keywords\": [\r\n                \"callable\",\r\n                \"dependency\",\r\n                \"dependency-injection\",\r\n                \"injection\",\r\n                \"invoke\",\r\n                \"invoker\"\r\n            ],\r\n            \"time\": \"2017-03-20T19:28:22+00:00\"\r\n        },\r\n        {\r\n            \"name\": \"php-di/php-di\",\r\n            \"version\": \"6.1.0\",\r\n            \"source\": {\r\n                \"type\": \"git\",\r\n                \"url\": \"https://github.com/PHP-DI/PHP-DI.git\",\r\n                \"reference\": \"69238bd49acc0eb6a967029311eeadc3f7c5d538\"\r\n            },\r\n            \"dist\": {\r\n                \"type\": \"zip\",\r\n                \"url\": \"https://api.github.com/repos/PHP-DI/PHP-DI/zipball/69238bd49acc0eb6a967029311eeadc3f7c5d538\",\r\n                \"reference\": \"69238bd49acc0eb6a967029311eeadc3f7c5d538\",\r\n                \"shasum\": \"\"\r\n            },\r\n            \"require\": {\r\n                \"jeremeamia/superclosure\": \"^2.0\",\r\n                \"nikic/php-parser\": \"^2.0|^3.0|^4.0\",\r\n                \"php\": \">=7.2.0\",\r\n                \"php-di/invoker\": \"^2.0\",\r\n                \"php-di/phpdoc-reader\": \"^2.0.1\",\r\n                \"psr/container\": \"^1.0\"\r\n            },\r\n            \"provide\": {\r\n                \"psr/container-implementation\": \"^1.0\"\r\n            },\r\n            \"require-dev\": {\r\n                \"doctrine/annotations\": \"~1.2\",\r\n                \"friendsofphp/php-cs-fixer\": \"^2.4\",\r\n                \"mnapoli/phpunit-easymock\": \"^1.2\",\r\n                \"ocramius/proxy-manager\": \"~2.0.2\",\r\n                \"phpstan/phpstan\": \"^0.12\",\r\n                \"phpunit/phpunit\": \"^8.5\"\r\n            },\r\n            \"suggest\": {\r\n                \"doctrine/annotations\": \"Install it if you want to use annotations (version ~1.2)\",\r\n                \"ocramius/proxy-manager\": \"Install it if you want to use lazy injection (version ~2.0)\"\r\n            },\r\n            \"type\": \"library\",\r\n            \"autoload\": {\r\n                \"psr-4\": {\r\n                    \"DI\\\\\": \"src/\"\r\n                },\r\n                \"files\": [\r\n                    \"src/functions.php\"\r\n                ]\r\n            },\r\n            \"notification-url\": \"https://packagist.org/downloads/\",\r\n            \"license\": [\r\n                \"MIT\"\r\n            ],\r\n            \"description\": \"The dependency injection container for humans\",\r\n            \"homepage\": \"http://php-di.org/\",\r\n            \"keywords\": [\r\n                \"PSR-11\",\r\n                \"container\",\r\n                \"container-interop\",\r\n                \"dependency injection\",\r\n                \"di\",\r\n                \"ioc\",\r\n                \"psr11\"\r\n            ],\r\n            \"funding\": [\r\n                {\r\n                    \"url\": \"https://github.com/mnapoli\",\r\n                    \"type\": \"github\"\r\n                },\r\n                {\r\n                    \"url\": \"https://tidelift.com/funding/github/packagist/php-di/php-di\",\r\n                    \"type\": \"tidelift\"\r\n                }\r\n            ],\r\n            \"time\": \"2020-04-06T09:54:49+00:00\"\r\n        },\r\n        {\r\n            \"name\": \"php-di/phpdoc-reader\",\r\n            \"version\": \"2.1.1\",\r\n            \"source\": {\r\n                \"type\": \"git\",\r\n                \"url\": \"https://github.com/PHP-DI/PhpDocReader.git\",\r\n                \"reference\": \"15678f7451c020226807f520efb867ad26fbbfcf\"\r\n            },\r\n            \"dist\": {\r\n                \"type\": \"zip\",\r\n                \"url\": \"https://api.github.com/repos/PHP-DI/PhpDocReader/zipball/15678f7451c020226807f520efb867ad26fbbfcf\",\r\n                \"reference\": \"15678f7451c020226807f520efb867ad26fbbfcf\",\r\n                \"shasum\": \"\"\r\n            },\r\n            \"require\": {\r\n                \"php\": \">=5.4.0\"\r\n            },\r\n            \"require-dev\": {\r\n                \"phpunit/phpunit\": \"~4.6\"\r\n            },\r\n            \"type\": \"library\",\r\n            \"autoload\": {\r\n                \"psr-4\": {\r\n                    \"PhpDocReader\\\\\": \"src/PhpDocReader\"\r\n                }\r\n            },\r\n            \"notification-url\": \"https://packagist.org/downloads/\",\r\n            \"license\": [\r\n                \"MIT\"\r\n            ],\r\n            \"description\": \"PhpDocReader parses @var and @param values in PHP docblocks (supports namespaced class names with the same resolution rules as PHP)\",\r\n            \"keywords\": [\r\n                \"phpdoc\",\r\n                \"reflection\"\r\n            ],\r\n            \"time\": \"2019-09-26T11:24:58+00:00\"\r\n        },\r\n        {\r\n            \"name\": \"php-di/slim-bridge\",\r\n            \"version\": \"3.0.1\",\r\n            \"source\": {\r\n                \"type\": \"git\",\r\n                \"url\": \"https://github.com/PHP-DI/Slim-Bridge.git\",\r\n                \"reference\": \"e7a568c00ecf6b0128f2a751990e06e77bedec68\"\r\n            },\r\n            \"dist\": {\r\n                \"type\": \"zip\",\r\n                \"url\": \"https://api.github.com/repos/PHP-DI/Slim-Bridge/zipball/e7a568c00ecf6b0128f2a751990e06e77bedec68\",\r\n                \"reference\": \"e7a568c00ecf6b0128f2a751990e06e77bedec68\",\r\n                \"shasum\": \"\"\r\n            },\r\n            \"require\": {\r\n                \"php\": \"~7.1\",\r\n                \"php-di/invoker\": \"^2.0.0\",\r\n                \"php-di/php-di\": \"^6.0.0\",\r\n                \"slim/slim\": \"^4.2.0\"\r\n            },\r\n            \"require-dev\": {\r\n                \"phpunit/phpunit\": \"~6.0\",\r\n                \"zendframework/zend-diactoros\": \"^2.1\"\r\n            },\r\n            \"type\": \"library\",\r\n            \"autoload\": {\r\n                \"psr-4\": {\r\n                    \"DI\\\\Bridge\\\\Slim\\\\\": \"src/\"\r\n                }\r\n            },\r\n            \"notification-url\": \"https://packagist.org/downloads/\",\r\n            \"license\": [\r\n                \"MIT\"\r\n            ],\r\n            \"description\": \"PHP-DI integration in Slim\",\r\n            \"time\": \"2020-01-13T19:11:12+00:00\"\r\n        },\r\n        {\r\n            \"name\": \"phpmailer/phpmailer\",\r\n            \"version\": \"v6.1.5\",\r\n            \"source\": {\r\n                \"type\": \"git\",\r\n                \"url\": \"https://github.com/PHPMailer/PHPMailer.git\",\r\n                \"reference\": \"a8bf068f64a580302026e484ee29511f661b2ad3\"\r\n            },\r\n            \"dist\": {\r\n                \"type\": \"zip\",\r\n                \"url\": \"https://api.github.com/repos/PHPMailer/PHPMailer/zipball/a8bf068f64a580302026e484ee29511f661b2ad3\",\r\n                \"reference\": \"a8bf068f64a580302026e484ee29511f661b2ad3\",\r\n                \"shasum\": \"\"\r\n            },\r\n            \"require\": {\r\n                \"ext-ctype\": \"*\",\r\n                \"ext-filter\": \"*\",\r\n                \"php\": \">=5.5.0\"\r\n            },\r\n            \"require-dev\": {\r\n                \"doctrine/annotations\": \"^1.2\",\r\n                \"friendsofphp/php-cs-fixer\": \"^2.2\",\r\n                \"phpunit/phpunit\": \"^4.8 || ^5.7\"\r\n            },\r\n            \"suggest\": {\r\n                \"ext-mbstring\": \"Needed to send email in multibyte encoding charset\",\r\n                \"hayageek/oauth2-yahoo\": \"Needed for Yahoo XOAUTH2 authentication\",\r\n                \"league/oauth2-google\": \"Needed for Google XOAUTH2 authentication\",\r\n                \"psr/log\": \"For optional PSR-3 debug logging\",\r\n                \"stevenmaguire/oauth2-microsoft\": \"Needed for Microsoft XOAUTH2 authentication\",\r\n                \"symfony/polyfill-mbstring\": \"To support UTF-8 if the Mbstring PHP extension is not enabled (^1.2)\"\r\n            },\r\n            \"type\": \"library\",\r\n            \"autoload\": {\r\n                \"psr-4\": {\r\n                    \"PHPMailer\\\\PHPMailer\\\\\": \"src/\"\r\n                }\r\n            },\r\n            \"notification-url\": \"https://packagist.org/downloads/\",\r\n            \"license\": [\r\n                \"LGPL-2.1-only\"\r\n            ],\r\n            \"authors\": [\r\n                {\r\n                    \"name\": \"Marcus Bointon\",\r\n                    \"email\": \"phpmailer@synchromedia.co.uk\"\r\n                },\r\n                {\r\n                    \"name\": \"Jim Jagielski\",\r\n                    \"email\": \"jimjag@gmail.com\"\r\n                },\r\n                {\r\n                    \"name\": \"Andy Prevost\",\r\n                    \"email\": \"codeworxtech@users.sourceforge.net\"\r\n                },\r\n                {\r\n                    \"name\": \"Brent R. Matzelle\"\r\n                }\r\n            ],\r\n            \"description\": \"PHPMailer is a full-featured email creation and transfer class for PHP\",\r\n            \"funding\": [\r\n                {\r\n                    \"url\": \"https://marcus.bointon.com/donations/\",\r\n                    \"type\": \"custom\"\r\n                },\r\n                {\r\n                    \"url\": \"https://github.com/Synchro\",\r\n                    \"type\": \"github\"\r\n                },\r\n                {\r\n                    \"url\": \"https://www.patreon.com/marcusbointon\",\r\n                    \"type\": \"patreon\"\r\n                }\r\n            ],\r\n            \"time\": \"2020-03-14T14:23:48+00:00\"\r\n        },\r\n        {\r\n            \"name\": \"psr/container\",\r\n            \"version\": \"1.0.0\",\r\n            \"source\": {\r\n                \"type\": \"git\",\r\n                \"url\": \"https://github.com/php-fig/container.git\",\r\n                \"reference\": \"b7ce3b176482dbbc1245ebf52b181af44c2cf55f\"\r\n            },\r\n            \"dist\": {\r\n                \"type\": \"zip\",\r\n                \"url\": \"https://api.github.com/repos/php-fig/container/zipball/b7ce3b176482dbbc1245ebf52b181af44c2cf55f\",\r\n                \"reference\": \"b7ce3b176482dbbc1245ebf52b181af44c2cf55f\",\r\n                \"shasum\": \"\"\r\n            },\r\n            \"require\": {\r\n                \"php\": \">=5.3.0\"\r\n            },\r\n            \"type\": \"library\",\r\n            \"extra\": {\r\n                \"branch-alias\": {\r\n                    \"dev-master\": \"1.0.x-dev\"\r\n                }\r\n            },\r\n            \"autoload\": {\r\n                \"psr-4\": {\r\n                    \"Psr\\\\Container\\\\\": \"src/\"\r\n                }\r\n            },\r\n            \"notification-url\": \"https://packagist.org/downloads/\",\r\n            \"license\": [\r\n                \"MIT\"\r\n            ],\r\n            \"authors\": [\r\n                {\r\n                    \"name\": \"PHP-FIG\",\r\n                    \"homepage\": \"http://www.php-fig.org/\"\r\n                }\r\n            ],\r\n            \"description\": \"Common Container Interface (PHP FIG PSR-11)\",\r\n            \"homepage\": \"https://github.com/php-fig/container\",\r\n            \"keywords\": [\r\n                \"PSR-11\",\r\n                \"container\",\r\n                \"container-interface\",\r\n                \"container-interop\",\r\n                \"psr\"\r\n            ],\r\n            \"time\": \"2017-02-14T16:28:37+00:00\"\r\n        },\r\n        {\r\n            \"name\": \"psr/http-factory\",\r\n            \"version\": \"1.0.1\",\r\n            \"source\": {\r\n                \"type\": \"git\",\r\n                \"url\": \"https://github.com/php-fig/http-factory.git\",\r\n                \"reference\": \"12ac7fcd07e5b077433f5f2bee95b3a771bf61be\"\r\n            },\r\n            \"dist\": {\r\n                \"type\": \"zip\",\r\n                \"url\": \"https://api.github.com/repos/php-fig/http-factory/zipball/12ac7fcd07e5b077433f5f2bee95b3a771bf61be\",\r\n                \"reference\": \"12ac7fcd07e5b077433f5f2bee95b3a771bf61be\",\r\n                \"shasum\": \"\"\r\n            },\r\n            \"require\": {\r\n                \"php\": \">=7.0.0\",\r\n                \"psr/http-message\": \"^1.0\"\r\n            },\r\n            \"type\": \"library\",\r\n            \"extra\": {\r\n                \"branch-alias\": {\r\n                    \"dev-master\": \"1.0.x-dev\"\r\n                }\r\n            },\r\n            \"autoload\": {\r\n                \"psr-4\": {\r\n                    \"Psr\\\\Http\\\\Message\\\\\": \"src/\"\r\n                }\r\n            },\r\n            \"notification-url\": \"https://packagist.org/downloads/\",\r\n            \"license\": [\r\n                \"MIT\"\r\n            ],\r\n            \"authors\": [\r\n                {\r\n                    \"name\": \"PHP-FIG\",\r\n                    \"homepage\": \"http://www.php-fig.org/\"\r\n                }\r\n            ],\r\n            \"description\": \"Common interfaces for PSR-7 HTTP message factories\",\r\n            \"keywords\": [\r\n                \"factory\",\r\n                \"http\",\r\n                \"message\",\r\n                \"psr\",\r\n                \"psr-17\",\r\n                \"psr-7\",\r\n                \"request\",\r\n                \"response\"\r\n            ],\r\n            \"time\": \"2019-04-30T12:38:16+00:00\"\r\n        },\r\n        {\r\n            \"name\": \"psr/http-message\",\r\n            \"version\": \"1.0.1\",\r\n            \"source\": {\r\n                \"type\": \"git\",\r\n                \"url\": \"https://github.com/php-fig/http-message.git\",\r\n                \"reference\": \"f6561bf28d520154e4b0ec72be95418abe6d9363\"\r\n            },\r\n            \"dist\": {\r\n                \"type\": \"zip\",\r\n                \"url\": \"https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363\",\r\n                \"reference\": \"f6561bf28d520154e4b0ec72be95418abe6d9363\",\r\n                \"shasum\": \"\"\r\n            },\r\n            \"require\": {\r\n                \"php\": \">=5.3.0\"\r\n            },\r\n            \"type\": \"library\",\r\n            \"extra\": {\r\n                \"branch-alias\": {\r\n                    \"dev-master\": \"1.0.x-dev\"\r\n                }\r\n            },\r\n            \"autoload\": {\r\n                \"psr-4\": {\r\n                    \"Psr\\\\Http\\\\Message\\\\\": \"src/\"\r\n                }\r\n            },\r\n            \"notification-url\": \"https://packagist.org/downloads/\",\r\n            \"license\": [\r\n                \"MIT\"\r\n            ],\r\n            \"authors\": [\r\n                {\r\n                    \"name\": \"PHP-FIG\",\r\n                    \"homepage\": \"http://www.php-fig.org/\"\r\n                }\r\n            ],\r\n            \"description\": \"Common interface for HTTP messages\",\r\n            \"homepage\": \"https://github.com/php-fig/http-message\",\r\n            \"keywords\": [\r\n                \"http\",\r\n                \"http-message\",\r\n                \"psr\",\r\n                \"psr-7\",\r\n                \"request\",\r\n                \"response\"\r\n            ],\r\n            \"time\": \"2016-08-06T14:39:51+00:00\"\r\n        },\r\n        {\r\n            \"name\": \"psr/http-server-handler\",\r\n            \"version\": \"1.0.1\",\r\n            \"source\": {\r\n                \"type\": \"git\",\r\n                \"url\": \"https://github.com/php-fig/http-server-handler.git\",\r\n                \"reference\": \"aff2f80e33b7f026ec96bb42f63242dc50ffcae7\"\r\n            },\r\n            \"dist\": {\r\n                \"type\": \"zip\",\r\n                \"url\": \"https://api.github.com/repos/php-fig/http-server-handler/zipball/aff2f80e33b7f026ec96bb42f63242dc50ffcae7\",\r\n                \"reference\": \"aff2f80e33b7f026ec96bb42f63242dc50ffcae7\",\r\n                \"shasum\": \"\"\r\n            },\r\n            \"require\": {\r\n                \"php\": \">=7.0\",\r\n                \"psr/http-message\": \"^1.0\"\r\n            },\r\n            \"type\": \"library\",\r\n            \"extra\": {\r\n                \"branch-alias\": {\r\n                    \"dev-master\": \"1.0.x-dev\"\r\n                }\r\n            },\r\n            \"autoload\": {\r\n                \"psr-4\": {\r\n                    \"Psr\\\\Http\\\\Server\\\\\": \"src/\"\r\n                }\r\n            },\r\n            \"notification-url\": \"https://packagist.org/downloads/\",\r\n            \"license\": [\r\n                \"MIT\"\r\n            ],\r\n            \"authors\": [\r\n                {\r\n                    \"name\": \"PHP-FIG\",\r\n                    \"homepage\": \"http://www.php-fig.org/\"\r\n                }\r\n            ],\r\n            \"description\": \"Common interface for HTTP server-side request handler\",\r\n            \"keywords\": [\r\n                \"handler\",\r\n                \"http\",\r\n                \"http-interop\",\r\n                \"psr\",\r\n                \"psr-15\",\r\n                \"psr-7\",\r\n                \"request\",\r\n                \"response\",\r\n                \"server\"\r\n            ],\r\n            \"time\": \"2018-10-30T16:46:14+00:00\"\r\n        },\r\n        {\r\n            \"name\": \"psr/http-server-middleware\",\r\n            \"version\": \"1.0.1\",\r\n            \"source\": {\r\n                \"type\": \"git\",\r\n                \"url\": \"https://github.com/php-fig/http-server-middleware.git\",\r\n                \"reference\": \"2296f45510945530b9dceb8bcedb5cb84d40c5f5\"\r\n            },\r\n            \"dist\": {\r\n                \"type\": \"zip\",\r\n                \"url\": \"https://api.github.com/repos/php-fig/http-server-middleware/zipball/2296f45510945530b9dceb8bcedb5cb84d40c5f5\",\r\n                \"reference\": \"2296f45510945530b9dceb8bcedb5cb84d40c5f5\",\r\n                \"shasum\": \"\"\r\n            },\r\n            \"require\": {\r\n                \"php\": \">=7.0\",\r\n                \"psr/http-message\": \"^1.0\",\r\n                \"psr/http-server-handler\": \"^1.0\"\r\n            },\r\n            \"type\": \"library\",\r\n            \"extra\": {\r\n                \"branch-alias\": {\r\n                    \"dev-master\": \"1.0.x-dev\"\r\n                }\r\n            },\r\n            \"autoload\": {\r\n                \"psr-4\": {\r\n                    \"Psr\\\\Http\\\\Server\\\\\": \"src/\"\r\n                }\r\n            },\r\n            \"notification-url\": \"https://packagist.org/downloads/\",\r\n            \"license\": [\r\n                \"MIT\"\r\n            ],\r\n            \"authors\": [\r\n                {\r\n                    \"name\": \"PHP-FIG\",\r\n                    \"homepage\": \"http://www.php-fig.org/\"\r\n                }\r\n            ],\r\n            \"description\": \"Common interface for HTTP server-side middleware\",\r\n            \"keywords\": [\r\n                \"http\",\r\n                \"http-interop\",\r\n                \"middleware\",\r\n                \"psr\",\r\n                \"psr-15\",\r\n                \"psr-7\",\r\n                \"request\",\r\n                \"response\"\r\n            ],\r\n            \"time\": \"2018-10-30T17:12:04+00:00\"\r\n        },\r\n        {\r\n            \"name\": \"psr/log\",\r\n            \"version\": \"1.1.3\",\r\n            \"source\": {\r\n                \"type\": \"git\",\r\n                \"url\": \"https://github.com/php-fig/log.git\",\r\n                \"reference\": \"0f73288fd15629204f9d42b7055f72dacbe811fc\"\r\n            },\r\n            \"dist\": {\r\n                \"type\": \"zip\",\r\n                \"url\": \"https://api.github.com/repos/php-fig/log/zipball/0f73288fd15629204f9d42b7055f72dacbe811fc\",\r\n                \"reference\": \"0f73288fd15629204f9d42b7055f72dacbe811fc\",\r\n                \"shasum\": \"\"\r\n            },\r\n            \"require\": {\r\n                \"php\": \">=5.3.0\"\r\n            },\r\n            \"type\": \"library\",\r\n            \"extra\": {\r\n                \"branch-alias\": {\r\n                    \"dev-master\": \"1.1.x-dev\"\r\n                }\r\n            },\r\n            \"autoload\": {\r\n                \"psr-4\": {\r\n                    \"Psr\\\\Log\\\\\": \"Psr/Log/\"\r\n                }\r\n            },\r\n            \"notification-url\": \"https://packagist.org/downloads/\",\r\n            \"license\": [\r\n                \"MIT\"\r\n            ],\r\n            \"authors\": [\r\n                {\r\n                    \"name\": \"PHP-FIG\",\r\n                    \"homepage\": \"http://www.php-fig.org/\"\r\n                }\r\n            ],\r\n            \"description\": \"Common interface for logging libraries\",\r\n            \"homepage\": \"https://github.com/php-fig/log\",\r\n            \"keywords\": [\r\n                \"log\",\r\n                \"psr\",\r\n                \"psr-3\"\r\n            ],\r\n            \"time\": \"2020-03-23T09:12:05+00:00\"\r\n        },\r\n        {\r\n            \"name\": \"ralouphie/getallheaders\",\r\n            \"version\": \"3.0.3\",\r\n            \"source\": {\r\n                \"type\": \"git\",\r\n                \"url\": \"https://github.com/ralouphie/getallheaders.git\",\r\n                \"reference\": \"120b605dfeb996808c31b6477290a714d356e822\"\r\n            },\r\n            \"dist\": {\r\n                \"type\": \"zip\",\r\n                \"url\": \"https://api.github.com/repos/ralouphie/getallheaders/zipball/120b605dfeb996808c31b6477290a714d356e822\",\r\n                \"reference\": \"120b605dfeb996808c31b6477290a714d356e822\",\r\n                \"shasum\": \"\"\r\n            },\r\n            \"require\": {\r\n                \"php\": \">=5.6\"\r\n            },\r\n            \"require-dev\": {\r\n                \"php-coveralls/php-coveralls\": \"^2.1\",\r\n                \"phpunit/phpunit\": \"^5 || ^6.5\"\r\n            },\r\n            \"type\": \"library\",\r\n            \"autoload\": {\r\n                \"files\": [\r\n                    \"src/getallheaders.php\"\r\n                ]\r\n            },\r\n            \"notification-url\": \"https://packagist.org/downloads/\",\r\n            \"license\": [\r\n                \"MIT\"\r\n            ],\r\n            \"authors\": [\r\n                {\r\n                    \"name\": \"Ralph Khattar\",\r\n                    \"email\": \"ralph.khattar@gmail.com\"\r\n                }\r\n            ],\r\n            \"description\": \"A polyfill for getallheaders.\",\r\n            \"time\": \"2019-03-08T08:55:37+00:00\"\r\n        },\r\n        {\r\n            \"name\": \"slim/flash\",\r\n            \"version\": \"0.4.0\",\r\n            \"source\": {\r\n                \"type\": \"git\",\r\n                \"url\": \"https://github.com/slimphp/Slim-Flash.git\",\r\n                \"reference\": \"9aaff5fded3b54f4e519ec3d4ac74d3d1f2cbbbc\"\r\n            },\r\n            \"dist\": {\r\n                \"type\": \"zip\",\r\n                \"url\": \"https://api.github.com/repos/slimphp/Slim-Flash/zipball/9aaff5fded3b54f4e519ec3d4ac74d3d1f2cbbbc\",\r\n                \"reference\": \"9aaff5fded3b54f4e519ec3d4ac74d3d1f2cbbbc\",\r\n                \"shasum\": \"\"\r\n            },\r\n            \"require\": {\r\n                \"php\": \">=5.5.0\"\r\n            },\r\n            \"require-dev\": {\r\n                \"phpunit/phpunit\": \"^4.0\"\r\n            },\r\n            \"type\": \"library\",\r\n            \"autoload\": {\r\n                \"psr-4\": {\r\n                    \"Slim\\\\Flash\\\\\": \"src\"\r\n                }\r\n            },\r\n            \"notification-url\": \"https://packagist.org/downloads/\",\r\n            \"license\": [\r\n                \"MIT\"\r\n            ],\r\n            \"authors\": [\r\n                {\r\n                    \"name\": \"Josh Lockhart\",\r\n                    \"email\": \"hello@joshlockhart.com\",\r\n                    \"homepage\": \"http://joshlockhart.com\"\r\n                }\r\n            ],\r\n            \"description\": \"Slim Framework Flash message service provider\",\r\n            \"homepage\": \"http://slimframework.com\",\r\n            \"keywords\": [\r\n                \"flash\",\r\n                \"framework\",\r\n                \"message\",\r\n                \"provider\",\r\n                \"slim\"\r\n            ],\r\n            \"time\": \"2017-10-22T10:35:05+00:00\"\r\n        },\r\n        {\r\n            \"name\": \"slim/psr7\",\r\n            \"version\": \"1.1.0\",\r\n            \"source\": {\r\n                \"type\": \"git\",\r\n                \"url\": \"https://github.com/slimphp/Slim-Psr7.git\",\r\n                \"reference\": \"3c76899e707910779f13d7af95fde12310b0a5ae\"\r\n            },\r\n            \"dist\": {\r\n                \"type\": \"zip\",\r\n                \"url\": \"https://api.github.com/repos/slimphp/Slim-Psr7/zipball/3c76899e707910779f13d7af95fde12310b0a5ae\",\r\n                \"reference\": \"3c76899e707910779f13d7af95fde12310b0a5ae\",\r\n                \"shasum\": \"\"\r\n            },\r\n            \"require\": {\r\n                \"fig/http-message-util\": \"^1.1.2\",\r\n                \"php\": \"^7.2\",\r\n                \"psr/http-factory\": \"^1.0\",\r\n                \"psr/http-message\": \"^1.0\",\r\n                \"ralouphie/getallheaders\": \"^3\"\r\n            },\r\n            \"provide\": {\r\n                \"psr/http-message-implementation\": \"1.0\"\r\n            },\r\n            \"require-dev\": {\r\n                \"adriansuter/php-autoload-override\": \"^1.0\",\r\n                \"ext-json\": \"*\",\r\n                \"http-interop/http-factory-tests\": \"^0.6.0\",\r\n                \"php-http/psr7-integration-tests\": \"dev-master\",\r\n                \"phpstan/phpstan\": \"^0.12\",\r\n                \"phpunit/phpunit\": \"^8.5\",\r\n                \"squizlabs/php_codesniffer\": \"^3.5\"\r\n            },\r\n            \"type\": \"library\",\r\n            \"autoload\": {\r\n                \"psr-4\": {\r\n                    \"Slim\\\\Psr7\\\\\": \"src\"\r\n                }\r\n            },\r\n            \"notification-url\": \"https://packagist.org/downloads/\",\r\n            \"license\": [\r\n                \"MIT\"\r\n            ],\r\n            \"authors\": [\r\n                {\r\n                    \"name\": \"Josh Lockhart\",\r\n                    \"email\": \"hello@joshlockhart.com\",\r\n                    \"homepage\": \"http://joshlockhart.com\"\r\n                },\r\n                {\r\n                    \"name\": \"Andrew Smith\",\r\n                    \"email\": \"a.smith@silentworks.co.uk\",\r\n                    \"homepage\": \"http://silentworks.co.uk\"\r\n                },\r\n                {\r\n                    \"name\": \"Rob Allen\",\r\n                    \"email\": \"rob@akrabat.com\",\r\n                    \"homepage\": \"http://akrabat.com\"\r\n                },\r\n                {\r\n                    \"name\": \"Pierre Berube\",\r\n                    \"email\": \"pierre@lgse.com\",\r\n                    \"homepage\": \"http://www.lgse.com\"\r\n                }\r\n            ],\r\n            \"description\": \"Strict PSR-7 implementation\",\r\n            \"homepage\": \"https://www.slimframework.com\",\r\n            \"keywords\": [\r\n                \"http\",\r\n                \"psr-7\",\r\n                \"psr7\"\r\n            ],\r\n            \"time\": \"2020-05-01T14:24:20+00:00\"\r\n        },\r\n        {\r\n            \"name\": \"slim/slim\",\r\n            \"version\": \"4.5.0\",\r\n            \"source\": {\r\n                \"type\": \"git\",\r\n                \"url\": \"https://github.com/slimphp/Slim.git\",\r\n                \"reference\": \"5613cbb521081ed676d5d7eb3e44f2b80a818c24\"\r\n            },\r\n            \"dist\": {\r\n                \"type\": \"zip\",\r\n                \"url\": \"https://api.github.com/repos/slimphp/Slim/zipball/5613cbb521081ed676d5d7eb3e44f2b80a818c24\",\r\n                \"reference\": \"5613cbb521081ed676d5d7eb3e44f2b80a818c24\",\r\n                \"shasum\": \"\"\r\n            },\r\n            \"require\": {\r\n                \"ext-json\": \"*\",\r\n                \"nikic/fast-route\": \"^1.3\",\r\n                \"php\": \"^7.2\",\r\n                \"psr/container\": \"^1.0\",\r\n                \"psr/http-factory\": \"^1.0\",\r\n                \"psr/http-message\": \"^1.0\",\r\n                \"psr/http-server-handler\": \"^1.0\",\r\n                \"psr/http-server-middleware\": \"^1.0\",\r\n                \"psr/log\": \"^1.1\"\r\n            },\r\n            \"require-dev\": {\r\n                \"adriansuter/php-autoload-override\": \"^1.0\",\r\n                \"ext-simplexml\": \"*\",\r\n                \"guzzlehttp/psr7\": \"^1.5\",\r\n                \"http-interop/http-factory-guzzle\": \"^1.0\",\r\n                \"laminas/laminas-diactoros\": \"^2.1\",\r\n                \"nyholm/psr7\": \"^1.1\",\r\n                \"nyholm/psr7-server\": \"^0.3.0\",\r\n                \"phpspec/prophecy\": \"^1.10\",\r\n                \"phpstan/phpstan\": \"^0.11.5\",\r\n                \"phpunit/phpunit\": \"^8.5\",\r\n                \"slim/http\": \"^1.0\",\r\n                \"slim/psr7\": \"^1.0\",\r\n                \"squizlabs/php_codesniffer\": \"^3.5\"\r\n            },\r\n            \"suggest\": {\r\n                \"ext-simplexml\": \"Needed to support XML format in BodyParsingMiddleware\",\r\n                \"ext-xml\": \"Needed to support XML format in BodyParsingMiddleware\",\r\n                \"php-di/php-di\": \"PHP-DI is the recommended container library to be used with Slim\",\r\n                \"slim/psr7\": \"Slim PSR-7 implementation. See https://www.slimframework.com/docs/v4/start/installation.html for more information.\"\r\n            },\r\n            \"type\": \"library\",\r\n            \"autoload\": {\r\n                \"psr-4\": {\r\n                    \"Slim\\\\\": \"Slim\"\r\n                }\r\n            },\r\n            \"notification-url\": \"https://packagist.org/downloads/\",\r\n            \"license\": [\r\n                \"MIT\"\r\n            ],\r\n            \"authors\": [\r\n                {\r\n                    \"name\": \"Josh Lockhart\",\r\n                    \"email\": \"hello@joshlockhart.com\",\r\n                    \"homepage\": \"https://joshlockhart.com\"\r\n                },\r\n                {\r\n                    \"name\": \"Andrew Smith\",\r\n                    \"email\": \"a.smith@silentworks.co.uk\",\r\n                    \"homepage\": \"http://silentworks.co.uk\"\r\n                },\r\n                {\r\n                    \"name\": \"Rob Allen\",\r\n                    \"email\": \"rob@akrabat.com\",\r\n                    \"homepage\": \"http://akrabat.com\"\r\n                },\r\n                {\r\n                    \"name\": \"Pierre Berube\",\r\n                    \"email\": \"pierre@lgse.com\",\r\n                    \"homepage\": \"http://www.lgse.com\"\r\n                },\r\n                {\r\n                    \"name\": \"Gabriel Manricks\",\r\n                    \"email\": \"gmanricks@me.com\",\r\n                    \"homepage\": \"http://gabrielmanricks.com\"\r\n                }\r\n            ],\r\n            \"description\": \"Slim is a PHP micro framework that helps you quickly write simple yet powerful web applications and APIs\",\r\n            \"homepage\": \"https://www.slimframework.com\",\r\n            \"keywords\": [\r\n                \"api\",\r\n                \"framework\",\r\n                \"micro\",\r\n                \"router\"\r\n            ],\r\n            \"funding\": [\r\n                {\r\n                    \"url\": \"https://opencollective.com/slimphp\",\r\n                    \"type\": \"open_collective\"\r\n                },\r\n                {\r\n                    \"url\": \"https://tidelift.com/funding/github/packagist/slim/slim\",\r\n                    \"type\": \"tidelift\"\r\n                }\r\n            ],\r\n            \"time\": \"2020-04-14T20:49:48+00:00\"\r\n        },\r\n        {\r\n            \"name\": \"slim/twig-view\",\r\n            \"version\": \"3.1.0\",\r\n            \"source\": {\r\n                \"type\": \"git\",\r\n                \"url\": \"https://github.com/slimphp/Twig-View.git\",\r\n                \"reference\": \"36f7a04ca9e58ef926dc25cd0110f629668cb3f0\"\r\n            },\r\n            \"dist\": {\r\n                \"type\": \"zip\",\r\n                \"url\": \"https://api.github.com/repos/slimphp/Twig-View/zipball/36f7a04ca9e58ef926dc25cd0110f629668cb3f0\",\r\n                \"reference\": \"36f7a04ca9e58ef926dc25cd0110f629668cb3f0\",\r\n                \"shasum\": \"\"\r\n            },\r\n            \"require\": {\r\n                \"php\": \"^7.2\",\r\n                \"psr/http-message\": \"^1.0\",\r\n                \"slim/slim\": \"^4.0\",\r\n                \"twig/twig\": \"^3.0\"\r\n            },\r\n            \"require-dev\": {\r\n                \"phpstan/phpstan\": \"^0.11.15\",\r\n                \"phpunit/phpunit\": \"^8.5\",\r\n                \"psr/http-factory\": \"^1.0\",\r\n                \"squizlabs/php_codesniffer\": \"^3.5\"\r\n            },\r\n            \"type\": \"library\",\r\n            \"autoload\": {\r\n                \"psr-4\": {\r\n                    \"Slim\\\\Views\\\\\": \"src\"\r\n                }\r\n            },\r\n            \"notification-url\": \"https://packagist.org/downloads/\",\r\n            \"license\": [\r\n                \"MIT\"\r\n            ],\r\n            \"authors\": [\r\n                {\r\n                    \"name\": \"Josh Lockhart\",\r\n                    \"email\": \"hello@joshlockhart.com\",\r\n                    \"homepage\": \"http://joshlockhart.com\"\r\n                },\r\n                {\r\n                    \"name\": \"Pierre Berube\",\r\n                    \"email\": \"pierre@lgse.com\",\r\n                    \"homepage\": \"http://www.lgse.com\"\r\n                }\r\n            ],\r\n            \"description\": \"Slim Framework 4 view helper built on top of the Twig 3 templating component\",\r\n            \"homepage\": \"https://www.slimframework.com\",\r\n            \"keywords\": [\r\n                \"framework\",\r\n                \"slim\",\r\n                \"template\",\r\n                \"twig\",\r\n                \"view\"\r\n            ],\r\n            \"time\": \"2020-03-13T18:08:36+00:00\"\r\n        },\r\n        {\r\n            \"name\": \"symfony/dotenv\",\r\n            \"version\": \"v5.0.8\",\r\n            \"source\": {\r\n                \"type\": \"git\",\r\n                \"url\": \"https://github.com/symfony/dotenv.git\",\r\n                \"reference\": \"28658ee990ea643c8111bac242d6ee5f3a15ef72\"\r\n            },\r\n            \"dist\": {\r\n                \"type\": \"zip\",\r\n                \"url\": \"https://api.github.com/repos/symfony/dotenv/zipball/28658ee990ea643c8111bac242d6ee5f3a15ef72\",\r\n                \"reference\": \"28658ee990ea643c8111bac242d6ee5f3a15ef72\",\r\n                \"shasum\": \"\"\r\n            },\r\n            \"require\": {\r\n                \"php\": \"^7.2.5\"\r\n            },\r\n            \"require-dev\": {\r\n                \"symfony/process\": \"^4.4|^5.0\"\r\n            },\r\n            \"type\": \"library\",\r\n            \"extra\": {\r\n                \"branch-alias\": {\r\n                    \"dev-master\": \"5.0-dev\"\r\n                }\r\n            },\r\n            \"autoload\": {\r\n                \"psr-4\": {\r\n                    \"Symfony\\\\Component\\\\Dotenv\\\\\": \"\"\r\n                },\r\n                \"exclude-from-classmap\": [\r\n                    \"/Tests/\"\r\n                ]\r\n            },\r\n            \"notification-url\": \"https://packagist.org/downloads/\",\r\n            \"license\": [\r\n                \"MIT\"\r\n            ],\r\n            \"authors\": [\r\n                {\r\n                    \"name\": \"Fabien Potencier\",\r\n                    \"email\": \"fabien@symfony.com\"\r\n                },\r\n                {\r\n                    \"name\": \"Symfony Community\",\r\n                    \"homepage\": \"https://symfony.com/contributors\"\r\n                }\r\n            ],\r\n            \"description\": \"Registers environment variables from a .env file\",\r\n            \"homepage\": \"https://symfony.com\",\r\n            \"keywords\": [\r\n                \"dotenv\",\r\n                \"env\",\r\n                \"environment\"\r\n            ],\r\n            \"funding\": [\r\n                {\r\n                    \"url\": \"https://symfony.com/sponsor\",\r\n                    \"type\": \"custom\"\r\n                },\r\n                {\r\n                    \"url\": \"https://github.com/fabpot\",\r\n                    \"type\": \"github\"\r\n                },\r\n                {\r\n                    \"url\": \"https://tidelift.com/funding/github/packagist/symfony/symfony\",\r\n                    \"type\": \"tidelift\"\r\n                }\r\n            ],\r\n            \"time\": \"2020-03-27T16:56:45+00:00\"\r\n        },\r\n        {\r\n            \"name\": \"symfony/polyfill-ctype\",\r\n            \"version\": \"v1.15.0\",\r\n            \"source\": {\r\n                \"type\": \"git\",\r\n                \"url\": \"https://github.com/symfony/polyfill-ctype.git\",\r\n                \"reference\": \"4719fa9c18b0464d399f1a63bf624b42b6fa8d14\"\r\n            },\r\n            \"dist\": {\r\n                \"type\": \"zip\",\r\n                \"url\": \"https://api.github.com/repos/symfony/polyfill-ctype/zipball/4719fa9c18b0464d399f1a63bf624b42b6fa8d14\",\r\n                \"reference\": \"4719fa9c18b0464d399f1a63bf624b42b6fa8d14\",\r\n                \"shasum\": \"\"\r\n            },\r\n            \"require\": {\r\n                \"php\": \">=5.3.3\"\r\n            },\r\n            \"suggest\": {\r\n                \"ext-ctype\": \"For best performance\"\r\n            },\r\n            \"type\": \"library\",\r\n            \"extra\": {\r\n                \"branch-alias\": {\r\n                    \"dev-master\": \"1.15-dev\"\r\n                }\r\n            },\r\n            \"autoload\": {\r\n                \"psr-4\": {\r\n                    \"Symfony\\\\Polyfill\\\\Ctype\\\\\": \"\"\r\n                },\r\n                \"files\": [\r\n                    \"bootstrap.php\"\r\n                ]\r\n            },\r\n            \"notification-url\": \"https://packagist.org/downloads/\",\r\n            \"license\": [\r\n                \"MIT\"\r\n            ],\r\n            \"authors\": [\r\n                {\r\n                    \"name\": \"Gert de Pagter\",\r\n                    \"email\": \"BackEndTea@gmail.com\"\r\n                },\r\n                {\r\n                    \"name\": \"Symfony Community\",\r\n                    \"homepage\": \"https://symfony.com/contributors\"\r\n                }\r\n            ],\r\n            \"description\": \"Symfony polyfill for ctype functions\",\r\n            \"homepage\": \"https://symfony.com\",\r\n            \"keywords\": [\r\n                \"compatibility\",\r\n                \"ctype\",\r\n                \"polyfill\",\r\n                \"portable\"\r\n            ],\r\n            \"funding\": [\r\n                {\r\n                    \"url\": \"https://symfony.com/sponsor\",\r\n                    \"type\": \"custom\"\r\n                },\r\n                {\r\n                    \"url\": \"https://github.com/fabpot\",\r\n                    \"type\": \"github\"\r\n                },\r\n                {\r\n                    \"url\": \"https://tidelift.com/funding/github/packagist/symfony/symfony\",\r\n                    \"type\": \"tidelift\"\r\n                }\r\n            ],\r\n            \"time\": \"2020-02-27T09:26:54+00:00\"\r\n        },\r\n        {\r\n            \"name\": \"symfony/polyfill-mbstring\",\r\n            \"version\": \"v1.15.0\",\r\n            \"source\": {\r\n                \"type\": \"git\",\r\n                \"url\": \"https://github.com/symfony/polyfill-mbstring.git\",\r\n                \"reference\": \"81ffd3a9c6d707be22e3012b827de1c9775fc5ac\"\r\n            },\r\n            \"dist\": {\r\n                \"type\": \"zip\",\r\n                \"url\": \"https://api.github.com/repos/symfony/polyfill-mbstring/zipball/81ffd3a9c6d707be22e3012b827de1c9775fc5ac\",\r\n                \"reference\": \"81ffd3a9c6d707be22e3012b827de1c9775fc5ac\",\r\n                \"shasum\": \"\"\r\n            },\r\n            \"require\": {\r\n                \"php\": \">=5.3.3\"\r\n            },\r\n            \"suggest\": {\r\n                \"ext-mbstring\": \"For best performance\"\r\n            },\r\n            \"type\": \"library\",\r\n            \"extra\": {\r\n                \"branch-alias\": {\r\n                    \"dev-master\": \"1.15-dev\"\r\n                }\r\n            },\r\n            \"autoload\": {\r\n                \"psr-4\": {\r\n                    \"Symfony\\\\Polyfill\\\\Mbstring\\\\\": \"\"\r\n                },\r\n                \"files\": [\r\n                    \"bootstrap.php\"\r\n                ]\r\n            },\r\n            \"notification-url\": \"https://packagist.org/downloads/\",\r\n            \"license\": [\r\n                \"MIT\"\r\n            ],\r\n            \"authors\": [\r\n                {\r\n                    \"name\": \"Nicolas Grekas\",\r\n                    \"email\": \"p@tchwork.com\"\r\n                },\r\n                {\r\n                    \"name\": \"Symfony Community\",\r\n                    \"homepage\": \"https://symfony.com/contributors\"\r\n                }\r\n            ],\r\n            \"description\": \"Symfony polyfill for the Mbstring extension\",\r\n            \"homepage\": \"https://symfony.com\",\r\n            \"keywords\": [\r\n                \"compatibility\",\r\n                \"mbstring\",\r\n                \"polyfill\",\r\n                \"portable\",\r\n                \"shim\"\r\n            ],\r\n            \"funding\": [\r\n                {\r\n                    \"url\": \"https://symfony.com/sponsor\",\r\n                    \"type\": \"custom\"\r\n                },\r\n                {\r\n                    \"url\": \"https://github.com/fabpot\",\r\n                    \"type\": \"github\"\r\n                },\r\n                {\r\n                    \"url\": \"https://tidelift.com/funding/github/packagist/symfony/symfony\",\r\n                    \"type\": \"tidelift\"\r\n                }\r\n            ],\r\n            \"time\": \"2020-03-09T19:04:49+00:00\"\r\n        },\r\n        {\r\n            \"name\": \"symfony/polyfill-php56\",\r\n            \"version\": \"v1.15.0\",\r\n            \"source\": {\r\n                \"type\": \"git\",\r\n                \"url\": \"https://github.com/symfony/polyfill-php56.git\",\r\n                \"reference\": \"d51ec491c8ddceae7dca8dd6c7e30428f543f37d\"\r\n            },\r\n            \"dist\": {\r\n                \"type\": \"zip\",\r\n                \"url\": \"https://api.github.com/repos/symfony/polyfill-php56/zipball/d51ec491c8ddceae7dca8dd6c7e30428f543f37d\",\r\n                \"reference\": \"d51ec491c8ddceae7dca8dd6c7e30428f543f37d\",\r\n                \"shasum\": \"\"\r\n            },\r\n            \"require\": {\r\n                \"php\": \">=5.3.3\",\r\n                \"symfony/polyfill-util\": \"~1.0\"\r\n            },\r\n            \"type\": \"library\",\r\n            \"extra\": {\r\n                \"branch-alias\": {\r\n                    \"dev-master\": \"1.15-dev\"\r\n                }\r\n            },\r\n            \"autoload\": {\r\n                \"psr-4\": {\r\n                    \"Symfony\\\\Polyfill\\\\Php56\\\\\": \"\"\r\n                },\r\n                \"files\": [\r\n                    \"bootstrap.php\"\r\n                ]\r\n            },\r\n            \"notification-url\": \"https://packagist.org/downloads/\",\r\n            \"license\": [\r\n                \"MIT\"\r\n            ],\r\n            \"authors\": [\r\n                {\r\n                    \"name\": \"Nicolas Grekas\",\r\n                    \"email\": \"p@tchwork.com\"\r\n                },\r\n                {\r\n                    \"name\": \"Symfony Community\",\r\n                    \"homepage\": \"https://symfony.com/contributors\"\r\n                }\r\n            ],\r\n            \"description\": \"Symfony polyfill backporting some PHP 5.6+ features to lower PHP versions\",\r\n            \"homepage\": \"https://symfony.com\",\r\n            \"keywords\": [\r\n                \"compatibility\",\r\n                \"polyfill\",\r\n                \"portable\",\r\n                \"shim\"\r\n            ],\r\n            \"funding\": [\r\n                {\r\n                    \"url\": \"https://symfony.com/sponsor\",\r\n                    \"type\": \"custom\"\r\n                },\r\n                {\r\n                    \"url\": \"https://github.com/fabpot\",\r\n                    \"type\": \"github\"\r\n                },\r\n                {\r\n                    \"url\": \"https://tidelift.com/funding/github/packagist/symfony/symfony\",\r\n                    \"type\": \"tidelift\"\r\n                }\r\n            ],\r\n            \"time\": \"2020-03-09T19:04:49+00:00\"\r\n        },\r\n        {\r\n            \"name\": \"symfony/polyfill-util\",\r\n            \"version\": \"v1.15.0\",\r\n            \"source\": {\r\n                \"type\": \"git\",\r\n                \"url\": \"https://github.com/symfony/polyfill-util.git\",\r\n                \"reference\": \"d8e76c104127675d0ea3df3be0f2ae24a8619027\"\r\n            },\r\n            \"dist\": {\r\n                \"type\": \"zip\",\r\n                \"url\": \"https://api.github.com/repos/symfony/polyfill-util/zipball/d8e76c104127675d0ea3df3be0f2ae24a8619027\",\r\n                \"reference\": \"d8e76c104127675d0ea3df3be0f2ae24a8619027\",\r\n                \"shasum\": \"\"\r\n            },\r\n            \"require\": {\r\n                \"php\": \">=5.3.3\"\r\n            },\r\n            \"type\": \"library\",\r\n            \"extra\": {\r\n                \"branch-alias\": {\r\n                    \"dev-master\": \"1.15-dev\"\r\n                }\r\n            },\r\n            \"autoload\": {\r\n                \"psr-4\": {\r\n                    \"Symfony\\\\Polyfill\\\\Util\\\\\": \"\"\r\n                }\r\n            },\r\n            \"notification-url\": \"https://packagist.org/downloads/\",\r\n            \"license\": [\r\n                \"MIT\"\r\n            ],\r\n            \"authors\": [\r\n                {\r\n                    \"name\": \"Nicolas Grekas\",\r\n                    \"email\": \"p@tchwork.com\"\r\n                },\r\n                {\r\n                    \"name\": \"Symfony Community\",\r\n                    \"homepage\": \"https://symfony.com/contributors\"\r\n                }\r\n            ],\r\n            \"description\": \"Symfony utilities for portability of PHP codes\",\r\n            \"homepage\": \"https://symfony.com\",\r\n            \"keywords\": [\r\n                \"compat\",\r\n                \"compatibility\",\r\n                \"polyfill\",\r\n                \"shim\"\r\n            ],\r\n            \"funding\": [\r\n                {\r\n                    \"url\": \"https://symfony.com/sponsor\",\r\n                    \"type\": \"custom\"\r\n                },\r\n                {\r\n                    \"url\": \"https://github.com/fabpot\",\r\n                    \"type\": \"github\"\r\n                },\r\n                {\r\n                    \"url\": \"https://tidelift.com/funding/github/packagist/symfony/symfony\",\r\n                    \"type\": \"tidelift\"\r\n                }\r\n            ],\r\n            \"time\": \"2020-03-02T11:55:35+00:00\"\r\n        },\r\n        {\r\n            \"name\": \"twig/twig\",\r\n            \"version\": \"v3.0.3\",\r\n            \"source\": {\r\n                \"type\": \"git\",\r\n                \"url\": \"https://github.com/twigphp/Twig.git\",\r\n                \"reference\": \"3b88ccd180a6b61ebb517aea3b1a8906762a1dc2\"\r\n            },\r\n            \"dist\": {\r\n                \"type\": \"zip\",\r\n                \"url\": \"https://api.github.com/repos/twigphp/Twig/zipball/3b88ccd180a6b61ebb517aea3b1a8906762a1dc2\",\r\n                \"reference\": \"3b88ccd180a6b61ebb517aea3b1a8906762a1dc2\",\r\n                \"shasum\": \"\"\r\n            },\r\n            \"require\": {\r\n                \"php\": \"^7.2.5\",\r\n                \"symfony/polyfill-ctype\": \"^1.8\",\r\n                \"symfony/polyfill-mbstring\": \"^1.3\"\r\n            },\r\n            \"require-dev\": {\r\n                \"psr/container\": \"^1.0\",\r\n                \"symfony/phpunit-bridge\": \"^4.4|^5.0\"\r\n            },\r\n            \"type\": \"library\",\r\n            \"extra\": {\r\n                \"branch-alias\": {\r\n                    \"dev-master\": \"3.0-dev\"\r\n                }\r\n            },\r\n            \"autoload\": {\r\n                \"psr-4\": {\r\n                    \"Twig\\\\\": \"src/\"\r\n                }\r\n            },\r\n            \"notification-url\": \"https://packagist.org/downloads/\",\r\n            \"license\": [\r\n                \"BSD-3-Clause\"\r\n            ],\r\n            \"authors\": [\r\n                {\r\n                    \"name\": \"Fabien Potencier\",\r\n                    \"email\": \"fabien@symfony.com\",\r\n                    \"homepage\": \"http://fabien.potencier.org\",\r\n                    \"role\": \"Lead Developer\"\r\n                },\r\n                {\r\n                    \"name\": \"Twig Team\",\r\n                    \"role\": \"Contributors\"\r\n                },\r\n                {\r\n                    \"name\": \"Armin Ronacher\",\r\n                    \"email\": \"armin.ronacher@active-4.com\",\r\n                    \"role\": \"Project Founder\"\r\n                }\r\n            ],\r\n            \"description\": \"Twig, the flexible, fast, and secure template language for PHP\",\r\n            \"homepage\": \"https://twig.symfony.com\",\r\n            \"keywords\": [\r\n                \"templating\"\r\n            ],\r\n            \"time\": \"2020-02-11T15:33:47+00:00\"\r\n        }\r\n    ],\r\n    \"packages-dev\": [],\r\n    \"aliases\": [],\r\n    \"minimum-stability\": \"stable\",\r\n    \"stability-flags\": [],\r\n    \"prefer-stable\": false,\r\n    \"prefer-lowest\": false,\r\n    \"platform\": {\r\n        \"ext-pdo\": \"*\"\r\n    },\r\n    \"platform-dev\": [],\r\n    \"plugin-api-version\": \"1.1.0\"\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- composer.lock	(revision 9566d9896957049d9360dc838415976a26cae2fc)
++++ composer.lock	(date 1590356222422)
+@@ -4,20 +4,20 @@
+         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+         "This file is @generated automatically"
+     ],
+-    "content-hash": "242cca968aea42e9be80cec36689f24c",
++    "content-hash": "4b1564beb96942aa9901da800f651ccf",
+     "packages": [
+         {
+             "name": "cloudinary/cloudinary_php",
+-            "version": "1.16.0",
++            "version": "dev-master",
+             "source": {
+                 "type": "git",
+                 "url": "https://github.com/cloudinary/cloudinary_php.git",
+-                "reference": "e33619e48ea8fa0350c007d640777091bfa4fdbc"
++                "reference": "7066bff581c4986c6d068f467decbb71f50b95eb"
+             },
+             "dist": {
+                 "type": "zip",
+-                "url": "https://api.github.com/repos/cloudinary/cloudinary_php/zipball/e33619e48ea8fa0350c007d640777091bfa4fdbc",
+-                "reference": "e33619e48ea8fa0350c007d640777091bfa4fdbc",
++                "url": "https://api.github.com/repos/cloudinary/cloudinary_php/zipball/7066bff581c4986c6d068f467decbb71f50b95eb",
++                "reference": "7066bff581c4986c6d068f467decbb71f50b95eb",
+                 "shasum": ""
+             },
+             "require": {
+@@ -26,6 +26,7 @@
+                 "php": ">=5.4.0"
+             },
+             "require-dev": {
++                "ext-zip": "*",
+                 "phpunit/phpunit": "4.8.*"
+             },
+             "type": "library",
+@@ -56,1589 +57,18 @@
+                 "image management",
+                 "sdk"
+             ],
+-            "time": "2019-11-28T15:57:33+00:00"
+-        },
+-        {
+-            "name": "dflydev/fig-cookies",
+-            "version": "v2.0.1",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/dflydev/dflydev-fig-cookies.git",
+-                "reference": "733af78ddad60aec96f7c4a1204619dd4d62afff"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/dflydev/dflydev-fig-cookies/zipball/733af78ddad60aec96f7c4a1204619dd4d62afff",
+-                "reference": "733af78ddad60aec96f7c4a1204619dd4d62afff",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "ext-pcre": "*",
+-                "php": "^7.2",
+-                "psr/http-message": "^1"
+-            },
+-            "require-dev": {
+-                "doctrine/coding-standard": "^4",
+-                "phpstan/phpstan": "^0.10.1",
+-                "phpunit/phpunit": "^7.2.6",
+-                "squizlabs/php_codesniffer": "^3.3"
+-            },
+-            "type": "library",
+-            "extra": {
+-                "branch-alias": {
+-                    "dev-master": "2.0.x-dev"
+-                }
+-            },
+-            "autoload": {
+-                "psr-4": {
+-                    "Dflydev\\FigCookies\\": "src/Dflydev/FigCookies"
+-                }
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "MIT"
+-            ],
+-            "authors": [
+-                {
+-                    "name": "Beau Simensen",
+-                    "email": "beau@dflydev.com"
+-                }
+-            ],
+-            "description": "Cookies for PSR-7 HTTP Message Interface.",
+-            "keywords": [
+-                "cookies",
+-                "psr-7",
+-                "psr7"
+-            ],
+-            "time": "2020-01-02T16:13:22+00:00"
+-        },
+-        {
+-            "name": "fig/http-message-util",
+-            "version": "1.1.4",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/php-fig/http-message-util.git",
+-                "reference": "3242caa9da7221a304b8f84eb9eaddae0a7cf422"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/php-fig/http-message-util/zipball/3242caa9da7221a304b8f84eb9eaddae0a7cf422",
+-                "reference": "3242caa9da7221a304b8f84eb9eaddae0a7cf422",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "php": "^5.3 || ^7.0"
+-            },
+-            "suggest": {
+-                "psr/http-message": "The package containing the PSR-7 interfaces"
+-            },
+-            "type": "library",
+-            "extra": {
+-                "branch-alias": {
+-                    "dev-master": "1.1.x-dev"
+-                }
+-            },
+-            "autoload": {
+-                "psr-4": {
+-                    "Fig\\Http\\Message\\": "src/"
+-                }
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "MIT"
+-            ],
+-            "authors": [
+-                {
+-                    "name": "PHP-FIG",
+-                    "homepage": "http://www.php-fig.org/"
+-                }
+-            ],
+-            "description": "Utility classes and constants for use with PSR-7 (psr/http-message)",
+-            "keywords": [
+-                "http",
+-                "http-message",
+-                "psr",
+-                "psr-7",
+-                "request",
+-                "response"
+-            ],
+-            "time": "2020-02-05T20:36:27+00:00"
+-        },
+-        {
+-            "name": "jeremeamia/superclosure",
+-            "version": "2.4.0",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/jeremeamia/super_closure.git",
+-                "reference": "5707d5821b30b9a07acfb4d76949784aaa0e9ce9"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/jeremeamia/super_closure/zipball/5707d5821b30b9a07acfb4d76949784aaa0e9ce9",
+-                "reference": "5707d5821b30b9a07acfb4d76949784aaa0e9ce9",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "nikic/php-parser": "^1.2|^2.0|^3.0|^4.0",
+-                "php": ">=5.4",
+-                "symfony/polyfill-php56": "^1.0"
+-            },
+-            "require-dev": {
+-                "phpunit/phpunit": "^4.0|^5.0"
+-            },
+-            "type": "library",
+-            "extra": {
+-                "branch-alias": {
+-                    "dev-master": "2.4-dev"
+-                }
+-            },
+-            "autoload": {
+-                "psr-4": {
+-                    "SuperClosure\\": "src/"
+-                }
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "MIT"
+-            ],
+-            "authors": [
+-                {
+-                    "name": "Jeremy Lindblom",
+-                    "email": "jeremeamia@gmail.com",
+-                    "homepage": "https://github.com/jeremeamia",
+-                    "role": "Developer"
+-                }
+-            ],
+-            "description": "Serialize Closure objects, including their context and binding",
+-            "homepage": "https://github.com/jeremeamia/super_closure",
+-            "keywords": [
+-                "closure",
+-                "function",
+-                "lambda",
+-                "parser",
+-                "serializable",
+-                "serialize",
+-                "tokenizer"
+-            ],
+-            "abandoned": "opis/closure",
+-            "time": "2018-03-21T22:21:57+00:00"
+-        },
+-        {
+-            "name": "nikic/fast-route",
+-            "version": "v1.3.0",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/nikic/FastRoute.git",
+-                "reference": "181d480e08d9476e61381e04a71b34dc0432e812"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/nikic/FastRoute/zipball/181d480e08d9476e61381e04a71b34dc0432e812",
+-                "reference": "181d480e08d9476e61381e04a71b34dc0432e812",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "php": ">=5.4.0"
+-            },
+-            "require-dev": {
+-                "phpunit/phpunit": "^4.8.35|~5.7"
+-            },
+-            "type": "library",
+-            "autoload": {
+-                "psr-4": {
+-                    "FastRoute\\": "src/"
+-                },
+-                "files": [
+-                    "src/functions.php"
+-                ]
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "BSD-3-Clause"
+-            ],
+-            "authors": [
+-                {
+-                    "name": "Nikita Popov",
+-                    "email": "nikic@php.net"
+-                }
+-            ],
+-            "description": "Fast request router for PHP",
+-            "keywords": [
+-                "router",
+-                "routing"
+-            ],
+-            "time": "2018-02-13T20:26:39+00:00"
+-        },
+-        {
+-            "name": "nikic/php-parser",
+-            "version": "v4.4.0",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/nikic/PHP-Parser.git",
+-                "reference": "bd43ec7152eaaab3bd8c6d0aa95ceeb1df8ee120"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/bd43ec7152eaaab3bd8c6d0aa95ceeb1df8ee120",
+-                "reference": "bd43ec7152eaaab3bd8c6d0aa95ceeb1df8ee120",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "ext-tokenizer": "*",
+-                "php": ">=7.0"
+-            },
+-            "require-dev": {
+-                "ircmaxell/php-yacc": "0.0.5",
+-                "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0"
+-            },
+-            "bin": [
+-                "bin/php-parse"
+-            ],
+-            "type": "library",
+-            "extra": {
+-                "branch-alias": {
+-                    "dev-master": "4.3-dev"
+-                }
+-            },
+-            "autoload": {
+-                "psr-4": {
+-                    "PhpParser\\": "lib/PhpParser"
+-                }
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "BSD-3-Clause"
+-            ],
+-            "authors": [
+-                {
+-                    "name": "Nikita Popov"
+-                }
+-            ],
+-            "description": "A PHP parser written in PHP",
+-            "keywords": [
+-                "parser",
+-                "php"
+-            ],
+-            "time": "2020-04-10T16:34:50+00:00"
+-        },
+-        {
+-            "name": "php-di/invoker",
+-            "version": "2.0.0",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/PHP-DI/Invoker.git",
+-                "reference": "540c27c86f663e20fe39a24cd72fa76cdb21d41a"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/PHP-DI/Invoker/zipball/540c27c86f663e20fe39a24cd72fa76cdb21d41a",
+-                "reference": "540c27c86f663e20fe39a24cd72fa76cdb21d41a",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "psr/container": "~1.0"
+-            },
+-            "require-dev": {
+-                "athletic/athletic": "~0.1.8",
+-                "phpunit/phpunit": "~4.5"
+-            },
+-            "type": "library",
+-            "autoload": {
+-                "psr-4": {
+-                    "Invoker\\": "src/"
+-                }
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "MIT"
+-            ],
+-            "description": "Generic and extensible callable invoker",
+-            "homepage": "https://github.com/PHP-DI/Invoker",
+-            "keywords": [
+-                "callable",
+-                "dependency",
+-                "dependency-injection",
+-                "injection",
+-                "invoke",
+-                "invoker"
+-            ],
+-            "time": "2017-03-20T19:28:22+00:00"
+-        },
+-        {
+-            "name": "php-di/php-di",
+-            "version": "6.1.0",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/PHP-DI/PHP-DI.git",
+-                "reference": "69238bd49acc0eb6a967029311eeadc3f7c5d538"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/PHP-DI/PHP-DI/zipball/69238bd49acc0eb6a967029311eeadc3f7c5d538",
+-                "reference": "69238bd49acc0eb6a967029311eeadc3f7c5d538",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "jeremeamia/superclosure": "^2.0",
+-                "nikic/php-parser": "^2.0|^3.0|^4.0",
+-                "php": ">=7.2.0",
+-                "php-di/invoker": "^2.0",
+-                "php-di/phpdoc-reader": "^2.0.1",
+-                "psr/container": "^1.0"
+-            },
+-            "provide": {
+-                "psr/container-implementation": "^1.0"
+-            },
+-            "require-dev": {
+-                "doctrine/annotations": "~1.2",
+-                "friendsofphp/php-cs-fixer": "^2.4",
+-                "mnapoli/phpunit-easymock": "^1.2",
+-                "ocramius/proxy-manager": "~2.0.2",
+-                "phpstan/phpstan": "^0.12",
+-                "phpunit/phpunit": "^8.5"
+-            },
+-            "suggest": {
+-                "doctrine/annotations": "Install it if you want to use annotations (version ~1.2)",
+-                "ocramius/proxy-manager": "Install it if you want to use lazy injection (version ~2.0)"
+-            },
+-            "type": "library",
+-            "autoload": {
+-                "psr-4": {
+-                    "DI\\": "src/"
+-                },
+-                "files": [
+-                    "src/functions.php"
+-                ]
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "MIT"
+-            ],
+-            "description": "The dependency injection container for humans",
+-            "homepage": "http://php-di.org/",
+-            "keywords": [
+-                "PSR-11",
+-                "container",
+-                "container-interop",
+-                "dependency injection",
+-                "di",
+-                "ioc",
+-                "psr11"
+-            ],
+-            "funding": [
+-                {
+-                    "url": "https://github.com/mnapoli",
+-                    "type": "github"
+-                },
+-                {
+-                    "url": "https://tidelift.com/funding/github/packagist/php-di/php-di",
+-                    "type": "tidelift"
+-                }
+-            ],
+-            "time": "2020-04-06T09:54:49+00:00"
+-        },
+-        {
+-            "name": "php-di/phpdoc-reader",
+-            "version": "2.1.1",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/PHP-DI/PhpDocReader.git",
+-                "reference": "15678f7451c020226807f520efb867ad26fbbfcf"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/PHP-DI/PhpDocReader/zipball/15678f7451c020226807f520efb867ad26fbbfcf",
+-                "reference": "15678f7451c020226807f520efb867ad26fbbfcf",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "php": ">=5.4.0"
+-            },
+-            "require-dev": {
+-                "phpunit/phpunit": "~4.6"
+-            },
+-            "type": "library",
+-            "autoload": {
+-                "psr-4": {
+-                    "PhpDocReader\\": "src/PhpDocReader"
+-                }
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "MIT"
+-            ],
+-            "description": "PhpDocReader parses @var and @param values in PHP docblocks (supports namespaced class names with the same resolution rules as PHP)",
+-            "keywords": [
+-                "phpdoc",
+-                "reflection"
+-            ],
+-            "time": "2019-09-26T11:24:58+00:00"
+-        },
+-        {
+-            "name": "php-di/slim-bridge",
+-            "version": "3.0.1",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/PHP-DI/Slim-Bridge.git",
+-                "reference": "e7a568c00ecf6b0128f2a751990e06e77bedec68"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/PHP-DI/Slim-Bridge/zipball/e7a568c00ecf6b0128f2a751990e06e77bedec68",
+-                "reference": "e7a568c00ecf6b0128f2a751990e06e77bedec68",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "php": "~7.1",
+-                "php-di/invoker": "^2.0.0",
+-                "php-di/php-di": "^6.0.0",
+-                "slim/slim": "^4.2.0"
+-            },
+-            "require-dev": {
+-                "phpunit/phpunit": "~6.0",
+-                "zendframework/zend-diactoros": "^2.1"
+-            },
+-            "type": "library",
+-            "autoload": {
+-                "psr-4": {
+-                    "DI\\Bridge\\Slim\\": "src/"
+-                }
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "MIT"
+-            ],
+-            "description": "PHP-DI integration in Slim",
+-            "time": "2020-01-13T19:11:12+00:00"
+-        },
+-        {
+-            "name": "phpmailer/phpmailer",
+-            "version": "v6.1.5",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/PHPMailer/PHPMailer.git",
+-                "reference": "a8bf068f64a580302026e484ee29511f661b2ad3"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/a8bf068f64a580302026e484ee29511f661b2ad3",
+-                "reference": "a8bf068f64a580302026e484ee29511f661b2ad3",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "ext-ctype": "*",
+-                "ext-filter": "*",
+-                "php": ">=5.5.0"
+-            },
+-            "require-dev": {
+-                "doctrine/annotations": "^1.2",
+-                "friendsofphp/php-cs-fixer": "^2.2",
+-                "phpunit/phpunit": "^4.8 || ^5.7"
+-            },
+-            "suggest": {
+-                "ext-mbstring": "Needed to send email in multibyte encoding charset",
+-                "hayageek/oauth2-yahoo": "Needed for Yahoo XOAUTH2 authentication",
+-                "league/oauth2-google": "Needed for Google XOAUTH2 authentication",
+-                "psr/log": "For optional PSR-3 debug logging",
+-                "stevenmaguire/oauth2-microsoft": "Needed for Microsoft XOAUTH2 authentication",
+-                "symfony/polyfill-mbstring": "To support UTF-8 if the Mbstring PHP extension is not enabled (^1.2)"
+-            },
+-            "type": "library",
+-            "autoload": {
+-                "psr-4": {
+-                    "PHPMailer\\PHPMailer\\": "src/"
+-                }
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "LGPL-2.1-only"
+-            ],
+-            "authors": [
+-                {
+-                    "name": "Marcus Bointon",
+-                    "email": "phpmailer@synchromedia.co.uk"
+-                },
+-                {
+-                    "name": "Jim Jagielski",
+-                    "email": "jimjag@gmail.com"
+-                },
+-                {
+-                    "name": "Andy Prevost",
+-                    "email": "codeworxtech@users.sourceforge.net"
+-                },
+-                {
+-                    "name": "Brent R. Matzelle"
+-                }
+-            ],
+-            "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
+-            "funding": [
+-                {
+-                    "url": "https://marcus.bointon.com/donations/",
+-                    "type": "custom"
+-                },
+-                {
+-                    "url": "https://github.com/Synchro",
+-                    "type": "github"
+-                },
+-                {
+-                    "url": "https://www.patreon.com/marcusbointon",
+-                    "type": "patreon"
+-                }
+-            ],
+-            "time": "2020-03-14T14:23:48+00:00"
+-        },
+-        {
+-            "name": "psr/container",
+-            "version": "1.0.0",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/php-fig/container.git",
+-                "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/php-fig/container/zipball/b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
+-                "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "php": ">=5.3.0"
+-            },
+-            "type": "library",
+-            "extra": {
+-                "branch-alias": {
+-                    "dev-master": "1.0.x-dev"
+-                }
+-            },
+-            "autoload": {
+-                "psr-4": {
+-                    "Psr\\Container\\": "src/"
+-                }
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "MIT"
+-            ],
+-            "authors": [
+-                {
+-                    "name": "PHP-FIG",
+-                    "homepage": "http://www.php-fig.org/"
+-                }
+-            ],
+-            "description": "Common Container Interface (PHP FIG PSR-11)",
+-            "homepage": "https://github.com/php-fig/container",
+-            "keywords": [
+-                "PSR-11",
+-                "container",
+-                "container-interface",
+-                "container-interop",
+-                "psr"
+-            ],
+-            "time": "2017-02-14T16:28:37+00:00"
+-        },
+-        {
+-            "name": "psr/http-factory",
+-            "version": "1.0.1",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/php-fig/http-factory.git",
+-                "reference": "12ac7fcd07e5b077433f5f2bee95b3a771bf61be"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/12ac7fcd07e5b077433f5f2bee95b3a771bf61be",
+-                "reference": "12ac7fcd07e5b077433f5f2bee95b3a771bf61be",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "php": ">=7.0.0",
+-                "psr/http-message": "^1.0"
+-            },
+-            "type": "library",
+-            "extra": {
+-                "branch-alias": {
+-                    "dev-master": "1.0.x-dev"
+-                }
+-            },
+-            "autoload": {
+-                "psr-4": {
+-                    "Psr\\Http\\Message\\": "src/"
+-                }
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "MIT"
+-            ],
+-            "authors": [
+-                {
+-                    "name": "PHP-FIG",
+-                    "homepage": "http://www.php-fig.org/"
+-                }
+-            ],
+-            "description": "Common interfaces for PSR-7 HTTP message factories",
+-            "keywords": [
+-                "factory",
+-                "http",
+-                "message",
+-                "psr",
+-                "psr-17",
+-                "psr-7",
+-                "request",
+-                "response"
+-            ],
+-            "time": "2019-04-30T12:38:16+00:00"
+-        },
+-        {
+-            "name": "psr/http-message",
+-            "version": "1.0.1",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/php-fig/http-message.git",
+-                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+-                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "php": ">=5.3.0"
+-            },
+-            "type": "library",
+-            "extra": {
+-                "branch-alias": {
+-                    "dev-master": "1.0.x-dev"
+-                }
+-            },
+-            "autoload": {
+-                "psr-4": {
+-                    "Psr\\Http\\Message\\": "src/"
+-                }
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "MIT"
+-            ],
+-            "authors": [
+-                {
+-                    "name": "PHP-FIG",
+-                    "homepage": "http://www.php-fig.org/"
+-                }
+-            ],
+-            "description": "Common interface for HTTP messages",
+-            "homepage": "https://github.com/php-fig/http-message",
+-            "keywords": [
+-                "http",
+-                "http-message",
+-                "psr",
+-                "psr-7",
+-                "request",
+-                "response"
+-            ],
+-            "time": "2016-08-06T14:39:51+00:00"
+-        },
+-        {
+-            "name": "psr/http-server-handler",
+-            "version": "1.0.1",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/php-fig/http-server-handler.git",
+-                "reference": "aff2f80e33b7f026ec96bb42f63242dc50ffcae7"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/php-fig/http-server-handler/zipball/aff2f80e33b7f026ec96bb42f63242dc50ffcae7",
+-                "reference": "aff2f80e33b7f026ec96bb42f63242dc50ffcae7",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "php": ">=7.0",
+-                "psr/http-message": "^1.0"
+-            },
+-            "type": "library",
+-            "extra": {
+-                "branch-alias": {
+-                    "dev-master": "1.0.x-dev"
+-                }
+-            },
+-            "autoload": {
+-                "psr-4": {
+-                    "Psr\\Http\\Server\\": "src/"
+-                }
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "MIT"
+-            ],
+-            "authors": [
+-                {
+-                    "name": "PHP-FIG",
+-                    "homepage": "http://www.php-fig.org/"
+-                }
+-            ],
+-            "description": "Common interface for HTTP server-side request handler",
+-            "keywords": [
+-                "handler",
+-                "http",
+-                "http-interop",
+-                "psr",
+-                "psr-15",
+-                "psr-7",
+-                "request",
+-                "response",
+-                "server"
+-            ],
+-            "time": "2018-10-30T16:46:14+00:00"
+-        },
+-        {
+-            "name": "psr/http-server-middleware",
+-            "version": "1.0.1",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/php-fig/http-server-middleware.git",
+-                "reference": "2296f45510945530b9dceb8bcedb5cb84d40c5f5"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/php-fig/http-server-middleware/zipball/2296f45510945530b9dceb8bcedb5cb84d40c5f5",
+-                "reference": "2296f45510945530b9dceb8bcedb5cb84d40c5f5",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "php": ">=7.0",
+-                "psr/http-message": "^1.0",
+-                "psr/http-server-handler": "^1.0"
+-            },
+-            "type": "library",
+-            "extra": {
+-                "branch-alias": {
+-                    "dev-master": "1.0.x-dev"
+-                }
+-            },
+-            "autoload": {
+-                "psr-4": {
+-                    "Psr\\Http\\Server\\": "src/"
+-                }
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "MIT"
+-            ],
+-            "authors": [
+-                {
+-                    "name": "PHP-FIG",
+-                    "homepage": "http://www.php-fig.org/"
+-                }
+-            ],
+-            "description": "Common interface for HTTP server-side middleware",
+-            "keywords": [
+-                "http",
+-                "http-interop",
+-                "middleware",
+-                "psr",
+-                "psr-15",
+-                "psr-7",
+-                "request",
+-                "response"
+-            ],
+-            "time": "2018-10-30T17:12:04+00:00"
+-        },
+-        {
+-            "name": "psr/log",
+-            "version": "1.1.3",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/php-fig/log.git",
+-                "reference": "0f73288fd15629204f9d42b7055f72dacbe811fc"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/php-fig/log/zipball/0f73288fd15629204f9d42b7055f72dacbe811fc",
+-                "reference": "0f73288fd15629204f9d42b7055f72dacbe811fc",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "php": ">=5.3.0"
+-            },
+-            "type": "library",
+-            "extra": {
+-                "branch-alias": {
+-                    "dev-master": "1.1.x-dev"
+-                }
+-            },
+-            "autoload": {
+-                "psr-4": {
+-                    "Psr\\Log\\": "Psr/Log/"
+-                }
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "MIT"
+-            ],
+-            "authors": [
+-                {
+-                    "name": "PHP-FIG",
+-                    "homepage": "http://www.php-fig.org/"
+-                }
+-            ],
+-            "description": "Common interface for logging libraries",
+-            "homepage": "https://github.com/php-fig/log",
+-            "keywords": [
+-                "log",
+-                "psr",
+-                "psr-3"
+-            ],
+-            "time": "2020-03-23T09:12:05+00:00"
+-        },
+-        {
+-            "name": "ralouphie/getallheaders",
+-            "version": "3.0.3",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/ralouphie/getallheaders.git",
+-                "reference": "120b605dfeb996808c31b6477290a714d356e822"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/120b605dfeb996808c31b6477290a714d356e822",
+-                "reference": "120b605dfeb996808c31b6477290a714d356e822",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "php": ">=5.6"
+-            },
+-            "require-dev": {
+-                "php-coveralls/php-coveralls": "^2.1",
+-                "phpunit/phpunit": "^5 || ^6.5"
+-            },
+-            "type": "library",
+-            "autoload": {
+-                "files": [
+-                    "src/getallheaders.php"
+-                ]
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "MIT"
+-            ],
+-            "authors": [
+-                {
+-                    "name": "Ralph Khattar",
+-                    "email": "ralph.khattar@gmail.com"
+-                }
+-            ],
+-            "description": "A polyfill for getallheaders.",
+-            "time": "2019-03-08T08:55:37+00:00"
+-        },
+-        {
+-            "name": "slim/flash",
+-            "version": "0.4.0",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/slimphp/Slim-Flash.git",
+-                "reference": "9aaff5fded3b54f4e519ec3d4ac74d3d1f2cbbbc"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/slimphp/Slim-Flash/zipball/9aaff5fded3b54f4e519ec3d4ac74d3d1f2cbbbc",
+-                "reference": "9aaff5fded3b54f4e519ec3d4ac74d3d1f2cbbbc",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "php": ">=5.5.0"
+-            },
+-            "require-dev": {
+-                "phpunit/phpunit": "^4.0"
+-            },
+-            "type": "library",
+-            "autoload": {
+-                "psr-4": {
+-                    "Slim\\Flash\\": "src"
+-                }
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "MIT"
+-            ],
+-            "authors": [
+-                {
+-                    "name": "Josh Lockhart",
+-                    "email": "hello@joshlockhart.com",
+-                    "homepage": "http://joshlockhart.com"
+-                }
+-            ],
+-            "description": "Slim Framework Flash message service provider",
+-            "homepage": "http://slimframework.com",
+-            "keywords": [
+-                "flash",
+-                "framework",
+-                "message",
+-                "provider",
+-                "slim"
+-            ],
+-            "time": "2017-10-22T10:35:05+00:00"
+-        },
+-        {
+-            "name": "slim/psr7",
+-            "version": "1.1.0",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/slimphp/Slim-Psr7.git",
+-                "reference": "3c76899e707910779f13d7af95fde12310b0a5ae"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/slimphp/Slim-Psr7/zipball/3c76899e707910779f13d7af95fde12310b0a5ae",
+-                "reference": "3c76899e707910779f13d7af95fde12310b0a5ae",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "fig/http-message-util": "^1.1.2",
+-                "php": "^7.2",
+-                "psr/http-factory": "^1.0",
+-                "psr/http-message": "^1.0",
+-                "ralouphie/getallheaders": "^3"
+-            },
+-            "provide": {
+-                "psr/http-message-implementation": "1.0"
+-            },
+-            "require-dev": {
+-                "adriansuter/php-autoload-override": "^1.0",
+-                "ext-json": "*",
+-                "http-interop/http-factory-tests": "^0.6.0",
+-                "php-http/psr7-integration-tests": "dev-master",
+-                "phpstan/phpstan": "^0.12",
+-                "phpunit/phpunit": "^8.5",
+-                "squizlabs/php_codesniffer": "^3.5"
+-            },
+-            "type": "library",
+-            "autoload": {
+-                "psr-4": {
+-                    "Slim\\Psr7\\": "src"
+-                }
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "MIT"
+-            ],
+-            "authors": [
+-                {
+-                    "name": "Josh Lockhart",
+-                    "email": "hello@joshlockhart.com",
+-                    "homepage": "http://joshlockhart.com"
+-                },
+-                {
+-                    "name": "Andrew Smith",
+-                    "email": "a.smith@silentworks.co.uk",
+-                    "homepage": "http://silentworks.co.uk"
+-                },
+-                {
+-                    "name": "Rob Allen",
+-                    "email": "rob@akrabat.com",
+-                    "homepage": "http://akrabat.com"
+-                },
+-                {
+-                    "name": "Pierre Berube",
+-                    "email": "pierre@lgse.com",
+-                    "homepage": "http://www.lgse.com"
+-                }
+-            ],
+-            "description": "Strict PSR-7 implementation",
+-            "homepage": "https://www.slimframework.com",
+-            "keywords": [
+-                "http",
+-                "psr-7",
+-                "psr7"
+-            ],
+-            "time": "2020-05-01T14:24:20+00:00"
+-        },
+-        {
+-            "name": "slim/slim",
+-            "version": "4.5.0",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/slimphp/Slim.git",
+-                "reference": "5613cbb521081ed676d5d7eb3e44f2b80a818c24"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/slimphp/Slim/zipball/5613cbb521081ed676d5d7eb3e44f2b80a818c24",
+-                "reference": "5613cbb521081ed676d5d7eb3e44f2b80a818c24",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "ext-json": "*",
+-                "nikic/fast-route": "^1.3",
+-                "php": "^7.2",
+-                "psr/container": "^1.0",
+-                "psr/http-factory": "^1.0",
+-                "psr/http-message": "^1.0",
+-                "psr/http-server-handler": "^1.0",
+-                "psr/http-server-middleware": "^1.0",
+-                "psr/log": "^1.1"
+-            },
+-            "require-dev": {
+-                "adriansuter/php-autoload-override": "^1.0",
+-                "ext-simplexml": "*",
+-                "guzzlehttp/psr7": "^1.5",
+-                "http-interop/http-factory-guzzle": "^1.0",
+-                "laminas/laminas-diactoros": "^2.1",
+-                "nyholm/psr7": "^1.1",
+-                "nyholm/psr7-server": "^0.3.0",
+-                "phpspec/prophecy": "^1.10",
+-                "phpstan/phpstan": "^0.11.5",
+-                "phpunit/phpunit": "^8.5",
+-                "slim/http": "^1.0",
+-                "slim/psr7": "^1.0",
+-                "squizlabs/php_codesniffer": "^3.5"
+-            },
+-            "suggest": {
+-                "ext-simplexml": "Needed to support XML format in BodyParsingMiddleware",
+-                "ext-xml": "Needed to support XML format in BodyParsingMiddleware",
+-                "php-di/php-di": "PHP-DI is the recommended container library to be used with Slim",
+-                "slim/psr7": "Slim PSR-7 implementation. See https://www.slimframework.com/docs/v4/start/installation.html for more information."
+-            },
+-            "type": "library",
+-            "autoload": {
+-                "psr-4": {
+-                    "Slim\\": "Slim"
+-                }
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "MIT"
+-            ],
+-            "authors": [
+-                {
+-                    "name": "Josh Lockhart",
+-                    "email": "hello@joshlockhart.com",
+-                    "homepage": "https://joshlockhart.com"
+-                },
+-                {
+-                    "name": "Andrew Smith",
+-                    "email": "a.smith@silentworks.co.uk",
+-                    "homepage": "http://silentworks.co.uk"
+-                },
+-                {
+-                    "name": "Rob Allen",
+-                    "email": "rob@akrabat.com",
+-                    "homepage": "http://akrabat.com"
+-                },
+-                {
+-                    "name": "Pierre Berube",
+-                    "email": "pierre@lgse.com",
+-                    "homepage": "http://www.lgse.com"
+-                },
+-                {
+-                    "name": "Gabriel Manricks",
+-                    "email": "gmanricks@me.com",
+-                    "homepage": "http://gabrielmanricks.com"
+-                }
+-            ],
+-            "description": "Slim is a PHP micro framework that helps you quickly write simple yet powerful web applications and APIs",
+-            "homepage": "https://www.slimframework.com",
+-            "keywords": [
+-                "api",
+-                "framework",
+-                "micro",
+-                "router"
+-            ],
+-            "funding": [
+-                {
+-                    "url": "https://opencollective.com/slimphp",
+-                    "type": "open_collective"
+-                },
+-                {
+-                    "url": "https://tidelift.com/funding/github/packagist/slim/slim",
+-                    "type": "tidelift"
+-                }
+-            ],
+-            "time": "2020-04-14T20:49:48+00:00"
+-        },
+-        {
+-            "name": "slim/twig-view",
+-            "version": "3.1.0",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/slimphp/Twig-View.git",
+-                "reference": "36f7a04ca9e58ef926dc25cd0110f629668cb3f0"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/slimphp/Twig-View/zipball/36f7a04ca9e58ef926dc25cd0110f629668cb3f0",
+-                "reference": "36f7a04ca9e58ef926dc25cd0110f629668cb3f0",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "php": "^7.2",
+-                "psr/http-message": "^1.0",
+-                "slim/slim": "^4.0",
+-                "twig/twig": "^3.0"
+-            },
+-            "require-dev": {
+-                "phpstan/phpstan": "^0.11.15",
+-                "phpunit/phpunit": "^8.5",
+-                "psr/http-factory": "^1.0",
+-                "squizlabs/php_codesniffer": "^3.5"
+-            },
+-            "type": "library",
+-            "autoload": {
+-                "psr-4": {
+-                    "Slim\\Views\\": "src"
+-                }
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "MIT"
+-            ],
+-            "authors": [
+-                {
+-                    "name": "Josh Lockhart",
+-                    "email": "hello@joshlockhart.com",
+-                    "homepage": "http://joshlockhart.com"
+-                },
+-                {
+-                    "name": "Pierre Berube",
+-                    "email": "pierre@lgse.com",
+-                    "homepage": "http://www.lgse.com"
+-                }
+-            ],
+-            "description": "Slim Framework 4 view helper built on top of the Twig 3 templating component",
+-            "homepage": "https://www.slimframework.com",
+-            "keywords": [
+-                "framework",
+-                "slim",
+-                "template",
+-                "twig",
+-                "view"
+-            ],
+-            "time": "2020-03-13T18:08:36+00:00"
+-        },
+-        {
+-            "name": "symfony/dotenv",
+-            "version": "v5.0.8",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/symfony/dotenv.git",
+-                "reference": "28658ee990ea643c8111bac242d6ee5f3a15ef72"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/symfony/dotenv/zipball/28658ee990ea643c8111bac242d6ee5f3a15ef72",
+-                "reference": "28658ee990ea643c8111bac242d6ee5f3a15ef72",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "php": "^7.2.5"
+-            },
+-            "require-dev": {
+-                "symfony/process": "^4.4|^5.0"
+-            },
+-            "type": "library",
+-            "extra": {
+-                "branch-alias": {
+-                    "dev-master": "5.0-dev"
+-                }
+-            },
+-            "autoload": {
+-                "psr-4": {
+-                    "Symfony\\Component\\Dotenv\\": ""
+-                },
+-                "exclude-from-classmap": [
+-                    "/Tests/"
+-                ]
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "MIT"
+-            ],
+-            "authors": [
+-                {
+-                    "name": "Fabien Potencier",
+-                    "email": "fabien@symfony.com"
+-                },
+-                {
+-                    "name": "Symfony Community",
+-                    "homepage": "https://symfony.com/contributors"
+-                }
+-            ],
+-            "description": "Registers environment variables from a .env file",
+-            "homepage": "https://symfony.com",
+-            "keywords": [
+-                "dotenv",
+-                "env",
+-                "environment"
+-            ],
+-            "funding": [
+-                {
+-                    "url": "https://symfony.com/sponsor",
+-                    "type": "custom"
+-                },
+-                {
+-                    "url": "https://github.com/fabpot",
+-                    "type": "github"
+-                },
+-                {
+-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+-                    "type": "tidelift"
+-                }
+-            ],
+-            "time": "2020-03-27T16:56:45+00:00"
+-        },
+-        {
+-            "name": "symfony/polyfill-ctype",
+-            "version": "v1.15.0",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/symfony/polyfill-ctype.git",
+-                "reference": "4719fa9c18b0464d399f1a63bf624b42b6fa8d14"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/4719fa9c18b0464d399f1a63bf624b42b6fa8d14",
+-                "reference": "4719fa9c18b0464d399f1a63bf624b42b6fa8d14",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "php": ">=5.3.3"
+-            },
+-            "suggest": {
+-                "ext-ctype": "For best performance"
+-            },
+-            "type": "library",
+-            "extra": {
+-                "branch-alias": {
+-                    "dev-master": "1.15-dev"
+-                }
+-            },
+-            "autoload": {
+-                "psr-4": {
+-                    "Symfony\\Polyfill\\Ctype\\": ""
+-                },
+-                "files": [
+-                    "bootstrap.php"
+-                ]
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "MIT"
+-            ],
+-            "authors": [
+-                {
+-                    "name": "Gert de Pagter",
+-                    "email": "BackEndTea@gmail.com"
+-                },
+-                {
+-                    "name": "Symfony Community",
+-                    "homepage": "https://symfony.com/contributors"
+-                }
+-            ],
+-            "description": "Symfony polyfill for ctype functions",
+-            "homepage": "https://symfony.com",
+-            "keywords": [
+-                "compatibility",
+-                "ctype",
+-                "polyfill",
+-                "portable"
+-            ],
+-            "funding": [
+-                {
+-                    "url": "https://symfony.com/sponsor",
+-                    "type": "custom"
+-                },
+-                {
+-                    "url": "https://github.com/fabpot",
+-                    "type": "github"
+-                },
+-                {
+-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+-                    "type": "tidelift"
+-                }
+-            ],
+-            "time": "2020-02-27T09:26:54+00:00"
+-        },
+-        {
+-            "name": "symfony/polyfill-mbstring",
+-            "version": "v1.15.0",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/symfony/polyfill-mbstring.git",
+-                "reference": "81ffd3a9c6d707be22e3012b827de1c9775fc5ac"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/81ffd3a9c6d707be22e3012b827de1c9775fc5ac",
+-                "reference": "81ffd3a9c6d707be22e3012b827de1c9775fc5ac",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "php": ">=5.3.3"
+-            },
+-            "suggest": {
+-                "ext-mbstring": "For best performance"
+-            },
+-            "type": "library",
+-            "extra": {
+-                "branch-alias": {
+-                    "dev-master": "1.15-dev"
+-                }
+-            },
+-            "autoload": {
+-                "psr-4": {
+-                    "Symfony\\Polyfill\\Mbstring\\": ""
+-                },
+-                "files": [
+-                    "bootstrap.php"
+-                ]
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "MIT"
+-            ],
+-            "authors": [
+-                {
+-                    "name": "Nicolas Grekas",
+-                    "email": "p@tchwork.com"
+-                },
+-                {
+-                    "name": "Symfony Community",
+-                    "homepage": "https://symfony.com/contributors"
+-                }
+-            ],
+-            "description": "Symfony polyfill for the Mbstring extension",
+-            "homepage": "https://symfony.com",
+-            "keywords": [
+-                "compatibility",
+-                "mbstring",
+-                "polyfill",
+-                "portable",
+-                "shim"
+-            ],
+-            "funding": [
+-                {
+-                    "url": "https://symfony.com/sponsor",
+-                    "type": "custom"
+-                },
+-                {
+-                    "url": "https://github.com/fabpot",
+-                    "type": "github"
+-                },
+-                {
+-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+-                    "type": "tidelift"
+-                }
+-            ],
+-            "time": "2020-03-09T19:04:49+00:00"
+-        },
+-        {
+-            "name": "symfony/polyfill-php56",
+-            "version": "v1.15.0",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/symfony/polyfill-php56.git",
+-                "reference": "d51ec491c8ddceae7dca8dd6c7e30428f543f37d"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/symfony/polyfill-php56/zipball/d51ec491c8ddceae7dca8dd6c7e30428f543f37d",
+-                "reference": "d51ec491c8ddceae7dca8dd6c7e30428f543f37d",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "php": ">=5.3.3",
+-                "symfony/polyfill-util": "~1.0"
+-            },
+-            "type": "library",
+-            "extra": {
+-                "branch-alias": {
+-                    "dev-master": "1.15-dev"
+-                }
+-            },
+-            "autoload": {
+-                "psr-4": {
+-                    "Symfony\\Polyfill\\Php56\\": ""
+-                },
+-                "files": [
+-                    "bootstrap.php"
+-                ]
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "MIT"
+-            ],
+-            "authors": [
+-                {
+-                    "name": "Nicolas Grekas",
+-                    "email": "p@tchwork.com"
+-                },
+-                {
+-                    "name": "Symfony Community",
+-                    "homepage": "https://symfony.com/contributors"
+-                }
+-            ],
+-            "description": "Symfony polyfill backporting some PHP 5.6+ features to lower PHP versions",
+-            "homepage": "https://symfony.com",
+-            "keywords": [
+-                "compatibility",
+-                "polyfill",
+-                "portable",
+-                "shim"
+-            ],
+-            "funding": [
+-                {
+-                    "url": "https://symfony.com/sponsor",
+-                    "type": "custom"
+-                },
+-                {
+-                    "url": "https://github.com/fabpot",
+-                    "type": "github"
+-                },
+-                {
+-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+-                    "type": "tidelift"
+-                }
+-            ],
+-            "time": "2020-03-09T19:04:49+00:00"
+-        },
+-        {
+-            "name": "symfony/polyfill-util",
+-            "version": "v1.15.0",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/symfony/polyfill-util.git",
+-                "reference": "d8e76c104127675d0ea3df3be0f2ae24a8619027"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/symfony/polyfill-util/zipball/d8e76c104127675d0ea3df3be0f2ae24a8619027",
+-                "reference": "d8e76c104127675d0ea3df3be0f2ae24a8619027",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "php": ">=5.3.3"
+-            },
+-            "type": "library",
+-            "extra": {
+-                "branch-alias": {
+-                    "dev-master": "1.15-dev"
+-                }
+-            },
+-            "autoload": {
+-                "psr-4": {
+-                    "Symfony\\Polyfill\\Util\\": ""
+-                }
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "MIT"
+-            ],
+-            "authors": [
+-                {
+-                    "name": "Nicolas Grekas",
+-                    "email": "p@tchwork.com"
+-                },
+-                {
+-                    "name": "Symfony Community",
+-                    "homepage": "https://symfony.com/contributors"
+-                }
+-            ],
+-            "description": "Symfony utilities for portability of PHP codes",
+-            "homepage": "https://symfony.com",
+-            "keywords": [
+-                "compat",
+-                "compatibility",
+-                "polyfill",
+-                "shim"
+-            ],
+-            "funding": [
+-                {
+-                    "url": "https://symfony.com/sponsor",
+-                    "type": "custom"
+-                },
+-                {
+-                    "url": "https://github.com/fabpot",
+-                    "type": "github"
+-                },
+-                {
+-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+-                    "type": "tidelift"
+-                }
+-            ],
+-            "time": "2020-03-02T11:55:35+00:00"
+-        },
+-        {
+-            "name": "twig/twig",
+-            "version": "v3.0.3",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/twigphp/Twig.git",
+-                "reference": "3b88ccd180a6b61ebb517aea3b1a8906762a1dc2"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/3b88ccd180a6b61ebb517aea3b1a8906762a1dc2",
+-                "reference": "3b88ccd180a6b61ebb517aea3b1a8906762a1dc2",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "php": "^7.2.5",
+-                "symfony/polyfill-ctype": "^1.8",
+-                "symfony/polyfill-mbstring": "^1.3"
+-            },
+-            "require-dev": {
+-                "psr/container": "^1.0",
+-                "symfony/phpunit-bridge": "^4.4|^5.0"
+-            },
+-            "type": "library",
+-            "extra": {
+-                "branch-alias": {
+-                    "dev-master": "3.0-dev"
+-                }
+-            },
+-            "autoload": {
+-                "psr-4": {
+-                    "Twig\\": "src/"
+-                }
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "BSD-3-Clause"
+-            ],
+-            "authors": [
+-                {
+-                    "name": "Fabien Potencier",
+-                    "email": "fabien@symfony.com",
+-                    "homepage": "http://fabien.potencier.org",
+-                    "role": "Lead Developer"
+-                },
+-                {
+-                    "name": "Twig Team",
+-                    "role": "Contributors"
+-                },
+-                {
+-                    "name": "Armin Ronacher",
+-                    "email": "armin.ronacher@active-4.com",
+-                    "role": "Project Founder"
+-                }
+-            ],
+-            "description": "Twig, the flexible, fast, and secure template language for PHP",
+-            "homepage": "https://twig.symfony.com",
+-            "keywords": [
+-                "templating"
+-            ],
+-            "time": "2020-02-11T15:33:47+00:00"
++            "time": "2020-05-18T09:54:33+00:00"
+         }
+     ],
+     "packages-dev": [],
+     "aliases": [],
+     "minimum-stability": "stable",
+-    "stability-flags": [],
++    "stability-flags": {
++        "cloudinary/cloudinary_php": 20
++    },
+     "prefer-stable": false,
+     "prefer-lowest": false,
+-    "platform": {
+-        "ext-pdo": "*"
+-    },
++    "platform": [],
+     "platform-dev": [],
+     "plugin-api-version": "1.1.0"
+ }
+Index: .env
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>MYSQL_USER=root\r\nMYSQL_ROOT_PASSWORD=admin\r\nMYSQL_DATABASE=test\r\nMYSQL_HOST=db\r\nMYSQL_PORT=3306\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .env	(revision 9566d9896957049d9360dc838415976a26cae2fc)
++++ .env	(date 1590175729714)
+@@ -1,5 +1,5 @@
+-MYSQL_USER=root
+-MYSQL_ROOT_PASSWORD=admin
++MYSQL_USER=homestead
++MYSQL_ROOT_PASSWORD=secret
+ MYSQL_DATABASE=test
+-MYSQL_HOST=db
++MYSQL_HOST=192.168.10.10
+ MYSQL_PORT=3306
+Index: .idea/pw2_grupo_23.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module type=\"WEB_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\">\r\n    <content url=\"file://$MODULE_DIR$\">\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src\" isTestSource=\"false\" packagePrefix=\"Pw\\SlimApp\\\" />\r\n      <sourceFolder url=\"file://$MODULE_DIR$/spec\" isTestSource=\"true\" />\r\n      <sourceFolder url=\"file://$MODULE_DIR$/tests\" isTestSource=\"true\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/cloudinary/cloudinary_php\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/composer\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/dflydev/fig-cookies\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/fig/http-message-util\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/jeremeamia/superclosure\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/nikic/fast-route\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/nikic/php-parser\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/php-di/invoker\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/php-di/php-di\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/php-di/phpdoc-reader\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/php-di/slim-bridge\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/phpmailer/phpmailer\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/psr/container\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/psr/http-factory\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/psr/http-message\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/psr/http-server-handler\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/psr/http-server-middleware\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/psr/log\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/ralouphie/getallheaders\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/slim/flash\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/slim/psr7\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/slim/slim\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/slim/twig-view\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/symfony/dotenv\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/symfony/polyfill-ctype\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/symfony/polyfill-php56\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/symfony/polyfill-util\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/twig/twig\" />\r\n    </content>\r\n    <orderEntry type=\"inheritedJdk\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/pw2_grupo_23.iml	(revision 9566d9896957049d9360dc838415976a26cae2fc)
++++ .idea/pw2_grupo_23.iml	(date 1590356374671)
+@@ -7,33 +7,6 @@
+       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+       <excludeFolder url="file://$MODULE_DIR$/vendor/cloudinary/cloudinary_php" />
+       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/dflydev/fig-cookies" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/fig/http-message-util" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/jeremeamia/superclosure" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/nikic/fast-route" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/nikic/php-parser" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/php-di/invoker" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/php-di/php-di" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/php-di/phpdoc-reader" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/php-di/slim-bridge" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/phpmailer/phpmailer" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/container" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-factory" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-message" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-server-handler" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-server-middleware" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/log" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/ralouphie/getallheaders" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/slim/flash" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/slim/psr7" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/slim/slim" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/slim/twig-view" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/dotenv" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-ctype" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php56" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-util" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/twig/twig" />
+     </content>
+     <orderEntry type="inheritedJdk" />
+     <orderEntry type="sourceFolder" forTests="false" />
+diff --git .idea/shelf/Uncommitted_changes_before_Checkout_at_11_05_2020_0_41__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Checkout_at_11_05_2020_0_41__Default_Changelist_.xml

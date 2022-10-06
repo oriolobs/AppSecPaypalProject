@@ -1,0 +1,68 @@
+{% extends "base_1.twig" %}
+
+{% block title %}Account page{% endblock %}
+
+{% block content %}
+
+    <div class="py-5 text-center parallax cover gradient-overlay" style="	background-image: url('/assets/img/paypal.png');	position: relative;	background-position: center center;	background-size: cover;	background-repeat: repeat;">
+        <div class="container d-flex flex-column">
+            <div class="row my-auto">
+                <div class="col-md-12 text-white">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h2 class="">Welcome to PwPay</h2>
+                                </div>
+                            </div>
+
+                            <li class="nav-item mx-1 align-items-center d-flex justify-content-center">
+                                <form action="profile" method="get">
+                                    <a class="nav-link">
+                                        <button type="submit" class="btn btn-warning">PROFILE</button></a>
+                                </form>
+                            </li>
+                            <li class="nav-item mx-1 align-items-center d-flex justify-content-center">
+                                <form action="account/money" method="get">
+                                    <a class="nav-link">
+                                        <button type="submit" class="btn btn-warning">ACCOUNT SUMMARY</button></a>
+                                </form>
+                            </li>
+                            <li class="nav-item mx-1 align-items-center d-flex justify-content-center">
+                                <form action="account/bank-account" method="get">
+                                    <a class="nav-link">
+                                        <button type="submit" class="btn btn-warning">BANK ACCOUNT</button></a>
+                                </form>
+                            </li>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="assets/js/parallax.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js"></script>
+<script>
+    $(document).ready(function() {
+        $('[data-toggle="popover"]').popover();
+        $('[data-toggle="tooltip"]').tooltip();
+        $('#datepicker-example').datepicker({
+            calendarWeeks: true,
+            autoclose: true,
+            todayHighlight: true
+        });
+    });
+</script>
+
+{% endblock %}
+
+
